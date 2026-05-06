@@ -1,0 +1,999 @@
+{
+  "recipes": [
+    {
+      "id": "1",
+      "name": "Fluffy Pancakes",
+      "servings": 4,
+      "prepTime": "10 minutes",
+      "cookTime": "30 minutes",
+      "category": "Breakfast",
+      "description": "Classic fluffy pancakes perfect for weekend breakfast",
+      "photos": [
+        {
+          "url": "https://via.placeholder.com/600x400/FFE4B5/8B4513?text=Fluffy+Pancakes",
+          "alt": "Stack of fluffy golden pancakes topped with butter and syrup",
+          "caption": "Golden, fluffy pancakes ready to serve"
+        },
+        {
+          "url": "https://via.placeholder.com/600x400/F5DEB3/8B4513?text=Pancake+Close-up",
+          "alt": "Close-up of pancake texture showing fluffiness",
+          "caption": "Perfect texture and golden color"
+        }
+      ],
+      "ingredients": [
+        {
+          "item": "self raising flour",
+          "amount": 2,
+          "unit": "cups"
+        },
+        {
+          "item": "milk",
+          "amount": 1,
+          "unit": "cup"
+        },
+        {
+          "item": "eggs",
+          "amount": 2,
+          "unit": ""
+        },
+        {
+          "item": "salt",
+          "amount": 1,
+          "unit": "pinch"
+        },
+        {
+          "item": "brown sugar",
+          "amount": 0.25,
+          "unit": "cup"
+        },
+        {
+          "item": "bicarbonate soda",
+          "amount": 0.25,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "baking powder",
+          "amount": 1.5,
+          "unit": "teaspoons"
+        },
+        {
+          "item": "melted butter",
+          "amount": 1,
+          "unit": "tablespoon"
+        },
+        {
+          "item": "vanilla extract",
+          "amount": 1,
+          "unit": "teaspoon"
+        }
+      ],
+      "instructions": [
+        {
+          "instruction": "Add melted butter to the milk and mix well.",
+          "type": "prep"
+        },
+        {
+          "instruction": "Beat eggs until fluffy and combine with the milk mixture.",
+          "type": "mix",
+          "photos": [
+            {
+              "url": "https://via.placeholder.com/400x300/FFF8DC/8B4513?text=Beating+Eggs",
+              "alt": "Fluffy beaten eggs in a mixing bowl",
+              "caption": "Beat eggs until light and fluffy"
+            }
+          ]
+        },
+        {
+          "instruction": "In a separate bowl, combine all dry ingredients (flour, salt, sugar, bicarbonate soda, baking powder).",
+          "type": "prep"
+        },
+        {
+          "instruction": "Add dry ingredients to wet ingredients. Don't over mix.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Let the batter sit for 30 minutes before cooking.",
+          "type": "rest"
+        },
+        {
+          "instruction": "Pour gently onto a heated pan, allowing the batter to be thick. Don't spread it out.",
+          "type": "cook",
+          "photos": [
+            {
+              "url": "https://via.placeholder.com/400x300/D2691E/FFFFFF?text=Pouring+Batter",
+              "alt": "Pancake batter being poured onto griddle",
+              "caption": "Pour batter gently, don't spread"
+            }
+          ]
+        },
+        {
+          "instruction": "Cook slowly over medium-low heat until bubbles form on the surface.",
+          "type": "cook"
+        },
+        {
+          "instruction": "Flip and cook until golden brown on both sides.",
+          "type": "cook",
+          "photos": [
+            {
+              "url": "https://via.placeholder.com/400x300/CD853F/FFFFFF?text=Flipping+Pancake",
+              "alt": "Pancake being flipped on griddle showing golden brown color",
+              "caption": "Flip when bubbles form and edges are set"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Classic Margherita Pizza",
+      "servings": 4,
+      "prepTime": "2 hours",
+      "cookTime": "15 minutes",
+      "category": "Dinner",
+      "description": "Traditional Italian pizza with fresh tomatoes, mozzarella, and basil",
+      "photos": [
+        {
+          "url": "https://via.placeholder.com/600x400/FFE4C4/8B0000?text=Margherita+Pizza",
+          "alt": "Classic Margherita pizza with melted mozzarella and fresh basil",
+          "caption": "Traditional Margherita pizza"
+        }
+      ],
+      "ingredients": [
+        {
+          "item": "bread flour",
+          "amount": 3,
+          "unit": "cups"
+        },
+        {
+          "item": "warm water",
+          "amount": 1.25,
+          "unit": "cups"
+        },
+        {
+          "item": "active dry yeast",
+          "amount": 2.25,
+          "unit": "teaspoons"
+        },
+        {
+          "item": "olive oil",
+          "amount": 2,
+          "unit": "tablespoons"
+        },
+        {
+          "item": "salt",
+          "amount": 1.5,
+          "unit": "teaspoons"
+        },
+        {
+          "item": "sugar",
+          "amount": 1,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "crushed tomatoes",
+          "amount": 1,
+          "unit": "cup"
+        },
+        {
+          "item": "fresh mozzarella cheese",
+          "amount": 16,
+          "unit": "oz"
+        },
+        {
+          "item": "fresh basil leaves",
+          "amount": 1,
+          "unit": "cup"
+        }
+      ],
+      "instructions": [
+        {
+          "instruction": "Mix warm water, yeast, and sugar. Let stand 5 minutes until foamy.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Add flour, olive oil, and salt. Knead for 10 minutes until smooth and elastic.",
+          "type": "other"
+        },
+        {
+          "instruction": "Place in oiled bowl, cover, and let rise for 1.5 hours until doubled.",
+          "type": "rest"
+        },
+        {
+          "instruction": "Divide dough into 2 portions. Roll each into a 12-inch circle.",
+          "type": "other"
+        },
+        {
+          "instruction": "Spread crushed tomatoes over dough, leaving a 1-inch border.",
+          "type": "other"
+        },
+        {
+          "instruction": "Tear mozzarella and distribute evenly over sauce.",
+          "type": "other"
+        },
+        {
+          "instruction": "Bake at 475°F (245°C) for 12-15 minutes until crust is golden.",
+          "type": "bake"
+        },
+        {
+          "instruction": "Remove from oven and top with fresh basil leaves. Serve immediately.",
+          "type": "bake"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Chicken Tikka Masala",
+      "servings": 6,
+      "prepTime": "30 minutes",
+      "cookTime": "40 minutes",
+      "category": "Dinner",
+      "description": "Creamy Indian curry with tender chicken in spiced tomato sauce",
+      "ingredients": [
+        {
+          "item": "chicken breast, cubed",
+          "amount": 2,
+          "unit": "lbs"
+        },
+        {
+          "item": "plain yogurt",
+          "amount": 1,
+          "unit": "cup"
+        },
+        {
+          "item": "garam masala",
+          "amount": 2,
+          "unit": "tablespoons"
+        },
+        {
+          "item": "ground cumin",
+          "amount": 1,
+          "unit": "tablespoon"
+        },
+        {
+          "item": "paprika",
+          "amount": 1,
+          "unit": "tablespoon"
+        },
+        {
+          "item": "onion, diced",
+          "amount": 1,
+          "unit": "large"
+        },
+        {
+          "item": "garlic cloves, minced",
+          "amount": 4,
+          "unit": ""
+        },
+        {
+          "item": "ginger, grated",
+          "amount": 2,
+          "unit": "tablespoons"
+        },
+        {
+          "item": "tomato sauce",
+          "amount": 2,
+          "unit": "cups"
+        },
+        {
+          "item": "heavy cream",
+          "amount": 1,
+          "unit": "cup"
+        },
+        {
+          "item": "butter",
+          "amount": 3,
+          "unit": "tablespoons"
+        },
+        {
+          "item": "salt",
+          "amount": 1,
+          "unit": "teaspoon"
+        }
+      ],
+      "instructions": [
+        {
+          "instruction": "Marinate chicken in yogurt, 1 tablespoon garam masala, cumin, paprika, and salt for 30 minutes.",
+          "type": "other"
+        },
+        {
+          "instruction": "Heat butter in a large pan over medium-high heat.",
+          "type": "cook"
+        },
+        {
+          "instruction": "Add marinated chicken and cook until browned on all sides, about 8-10 minutes. Remove and set aside.",
+          "type": "cook"
+        },
+        {
+          "instruction": "In the same pan, sauté onion until golden, about 5 minutes.",
+          "type": "cook"
+        },
+        {
+          "instruction": "Add garlic and ginger, cook for 1 minute until fragrant.",
+          "type": "cook"
+        },
+        {
+          "instruction": "Stir in tomato sauce and remaining garam masala. Simmer for 10 minutes.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Add heavy cream and return chicken to pan.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Simmer for 15 minutes until chicken is cooked through and sauce is thickened.",
+          "type": "cook"
+        },
+        {
+          "instruction": "Serve hot with rice or naan bread.",
+          "type": "serve"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Caesar Salad",
+      "servings": 4,
+      "prepTime": "15 minutes",
+      "cookTime": "0 minutes",
+      "category": "Salad",
+      "description": "Classic Caesar salad with homemade dressing and crispy croutons",
+      "ingredients": [
+        {
+          "item": "romaine lettuce hearts",
+          "amount": 2,
+          "unit": ""
+        },
+        {
+          "item": "garlic cloves",
+          "amount": 2,
+          "unit": ""
+        },
+        {
+          "item": "anchovy fillets",
+          "amount": 4,
+          "unit": ""
+        },
+        {
+          "item": "lemon juice",
+          "amount": 3,
+          "unit": "tablespoons"
+        },
+        {
+          "item": "Dijon mustard",
+          "amount": 1,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "olive oil",
+          "amount": 0.5,
+          "unit": "cup"
+        },
+        {
+          "item": "Parmesan cheese, grated",
+          "amount": 0.75,
+          "unit": "cup"
+        },
+        {
+          "item": "croutons",
+          "amount": 2,
+          "unit": "cups"
+        },
+        {
+          "item": "black pepper",
+          "amount": 0.5,
+          "unit": "teaspoon"
+        }
+      ],
+      "instructions": [
+        {
+          "instruction": "Wash and chop romaine lettuce into bite-sized pieces. Pat dry thoroughly.",
+          "type": "prep"
+        },
+        {
+          "instruction": "In a food processor, blend garlic, anchovies, lemon juice, and Dijon mustard.",
+          "type": "mix"
+        },
+        {
+          "instruction": "With processor running, slowly drizzle in olive oil until emulsified.",
+          "type": "other"
+        },
+        {
+          "instruction": "Add half the Parmesan cheese to the dressing and pulse to combine.",
+          "type": "mix"
+        },
+        {
+          "instruction": "In a large bowl, toss lettuce with dressing until evenly coated.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Add croutons and remaining Parmesan.",
+          "type": "other"
+        },
+        {
+          "instruction": "Season with black pepper to taste.",
+          "type": "other"
+        },
+        {
+          "instruction": "Serve immediately while croutons are still crispy.",
+          "type": "serve"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Chocolate Chip Cookies",
+      "servings": 24,
+      "prepTime": "15 minutes",
+      "cookTime": "12 minutes",
+      "category": "Dessert",
+      "description": "Chewy chocolate chip cookies with crispy edges",
+      "ingredients": [
+        {
+          "item": "all-purpose flour",
+          "amount": 2.25,
+          "unit": "cups"
+        },
+        {
+          "item": "baking soda",
+          "amount": 1,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "salt",
+          "amount": 1,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "butter, softened",
+          "amount": 1,
+          "unit": "cup"
+        },
+        {
+          "item": "granulated sugar",
+          "amount": 0.75,
+          "unit": "cup"
+        },
+        {
+          "item": "brown sugar, packed",
+          "amount": 0.75,
+          "unit": "cup"
+        },
+        {
+          "item": "eggs",
+          "amount": 2,
+          "unit": ""
+        },
+        {
+          "item": "vanilla extract",
+          "amount": 2,
+          "unit": "teaspoons"
+        },
+        {
+          "item": "chocolate chips",
+          "amount": 2,
+          "unit": "cups"
+        }
+      ],
+      "instructions": [
+        {
+          "instruction": "Preheat oven to 375°F (190°C).",
+          "type": "prep"
+        },
+        {
+          "instruction": "Mix flour, baking soda, and salt in a bowl.",
+          "type": "mix"
+        },
+        {
+          "instruction": "In a large bowl, cream together butter, granulated sugar, and brown sugar until fluffy.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Beat in eggs one at a time, then stir in vanilla extract.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Gradually blend in the flour mixture.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Fold in chocolate chips.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Drop rounded tablespoons of dough onto ungreased baking sheets.",
+          "type": "prep"
+        },
+        {
+          "instruction": "Bake for 10-12 minutes until golden brown around edges.",
+          "type": "bake"
+        },
+        {
+          "instruction": "Cool on baking sheet for 2 minutes before transferring to wire rack.",
+          "type": "rest"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Classic Beef Tacos",
+      "servings": 6,
+      "prepTime": "10 minutes",
+      "cookTime": "20 minutes",
+      "category": "Dinner",
+      "description": "Flavorful ground beef tacos with fresh toppings",
+      "ingredients": [
+        {
+          "item": "ground beef",
+          "amount": 1.5,
+          "unit": "lbs"
+        },
+        {
+          "item": "taco seasoning",
+          "amount": 3,
+          "unit": "tablespoons"
+        },
+        {
+          "item": "water",
+          "amount": 0.5,
+          "unit": "cup"
+        },
+        {
+          "item": "taco shells",
+          "amount": 12,
+          "unit": ""
+        },
+        {
+          "item": "shredded lettuce",
+          "amount": 2,
+          "unit": "cups"
+        },
+        {
+          "item": "diced tomatoes",
+          "amount": 2,
+          "unit": "cups"
+        },
+        {
+          "item": "shredded cheddar cheese",
+          "amount": 1.5,
+          "unit": "cups"
+        },
+        {
+          "item": "sour cream",
+          "amount": 0.5,
+          "unit": "cup"
+        },
+        {
+          "item": "salsa",
+          "amount": 1,
+          "unit": "cup"
+        }
+      ],
+      "instructions": [
+        {
+          "instruction": "Brown ground beef in a large skillet over medium-high heat, breaking it up as it cooks.",
+          "type": "cook"
+        },
+        {
+          "instruction": "Drain excess fat from the pan.",
+          "type": "other"
+        },
+        {
+          "instruction": "Add taco seasoning and water to the beef, stirring well.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Simmer for 5 minutes until sauce thickens.",
+          "type": "cook"
+        },
+        {
+          "instruction": "Warm taco shells according to package directions.",
+          "type": "other"
+        },
+        {
+          "instruction": "Fill each shell with seasoned beef.",
+          "type": "other"
+        },
+        {
+          "instruction": "Top with lettuce, tomatoes, cheese, sour cream, and salsa.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Serve immediately while shells are warm and crispy.",
+          "type": "serve"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Vegetable Stir Fry",
+      "servings": 4,
+      "prepTime": "20 minutes",
+      "cookTime": "10 minutes",
+      "category": "Dinner",
+      "description": "Quick and healthy Asian-inspired vegetable stir fry",
+      "ingredients": [
+        {
+          "item": "broccoli florets",
+          "amount": 2,
+          "unit": "cups"
+        },
+        {
+          "item": "bell peppers, sliced",
+          "amount": 2,
+          "unit": ""
+        },
+        {
+          "item": "carrots, sliced",
+          "amount": 2,
+          "unit": ""
+        },
+        {
+          "item": "snap peas",
+          "amount": 1,
+          "unit": "cup"
+        },
+        {
+          "item": "garlic cloves, minced",
+          "amount": 3,
+          "unit": ""
+        },
+        {
+          "item": "ginger, grated",
+          "amount": 1,
+          "unit": "tablespoon"
+        },
+        {
+          "item": "soy sauce",
+          "amount": 3,
+          "unit": "tablespoons"
+        },
+        {
+          "item": "sesame oil",
+          "amount": 2,
+          "unit": "tablespoons"
+        },
+        {
+          "item": "vegetable oil",
+          "amount": 2,
+          "unit": "tablespoons"
+        },
+        {
+          "item": "cornstarch",
+          "amount": 1,
+          "unit": "tablespoon"
+        },
+        {
+          "item": "water",
+          "amount": 0.25,
+          "unit": "cup"
+        }
+      ],
+      "instructions": [
+        {
+          "instruction": "Mix soy sauce, sesame oil, cornstarch, and water in a small bowl. Set aside.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Heat vegetable oil in a large wok or skillet over high heat.",
+          "type": "cook"
+        },
+        {
+          "instruction": "Add garlic and ginger, stir fry for 30 seconds until fragrant.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Add carrots and broccoli, stir fry for 3 minutes.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Add bell peppers and snap peas, stir fry for 2 minutes.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Pour sauce over vegetables and toss to coat.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Cook for 1-2 minutes until sauce thickens and vegetables are crisp-tender.",
+          "type": "cook"
+        },
+        {
+          "instruction": "Serve immediately over rice or noodles.",
+          "type": "serve"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "name": "French Onion Soup",
+      "servings": 4,
+      "prepTime": "15 minutes",
+      "cookTime": "60 minutes",
+      "category": "Soup",
+      "description": "Rich caramelized onion soup with melted Gruyère cheese",
+      "ingredients": [
+        {
+          "item": "yellow onions, thinly sliced",
+          "amount": 4,
+          "unit": "large"
+        },
+        {
+          "item": "butter",
+          "amount": 4,
+          "unit": "tablespoons"
+        },
+        {
+          "item": "beef broth",
+          "amount": 6,
+          "unit": "cups"
+        },
+        {
+          "item": "dry white wine",
+          "amount": 0.5,
+          "unit": "cup"
+        },
+        {
+          "item": "bay leaves",
+          "amount": 2,
+          "unit": ""
+        },
+        {
+          "item": "fresh thyme",
+          "amount": 1,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "salt",
+          "amount": 1,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "black pepper",
+          "amount": 0.5,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "baguette slices",
+          "amount": 8,
+          "unit": ""
+        },
+        {
+          "item": "Gruyère cheese, shredded",
+          "amount": 2,
+          "unit": "cups"
+        }
+      ],
+      "instructions": [
+        {
+          "instruction": "Melt butter in a large pot over medium heat.",
+          "type": "cook"
+        },
+        {
+          "instruction": "Add onions and cook, stirring frequently, for 40-45 minutes until deeply caramelized.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Add wine and scrape up any browned bits from the bottom of the pot.",
+          "type": "cook"
+        },
+        {
+          "instruction": "Add beef broth, bay leaves, thyme, salt, and pepper. Bring to a boil.",
+          "type": "cook"
+        },
+        {
+          "instruction": "Reduce heat and simmer for 15 minutes.",
+          "type": "cook"
+        },
+        {
+          "instruction": "Toast baguette slices until golden.",
+          "type": "prep"
+        },
+        {
+          "instruction": "Ladle soup into oven-safe bowls.",
+          "type": "bake"
+        },
+        {
+          "instruction": "Top each bowl with 2 baguette slices and shredded Gruyère.",
+          "type": "prep"
+        },
+        {
+          "instruction": "Broil for 2-3 minutes until cheese is bubbly and golden.",
+          "type": "other"
+        },
+        {
+          "instruction": "Serve immediately, being careful as bowls will be hot.",
+          "type": "serve"
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "name": "Greek Salad",
+      "servings": 6,
+      "prepTime": "15 minutes",
+      "cookTime": "0 minutes",
+      "category": "Salad",
+      "description": "Fresh Mediterranean salad with feta cheese and olives",
+      "ingredients": [
+        {
+          "item": "cucumbers, diced",
+          "amount": 2,
+          "unit": ""
+        },
+        {
+          "item": "tomatoes, diced",
+          "amount": 4,
+          "unit": "large"
+        },
+        {
+          "item": "red onion, thinly sliced",
+          "amount": 0.5,
+          "unit": ""
+        },
+        {
+          "item": "Kalamata olives",
+          "amount": 1,
+          "unit": "cup"
+        },
+        {
+          "item": "feta cheese, crumbled",
+          "amount": 1,
+          "unit": "cup"
+        },
+        {
+          "item": "olive oil",
+          "amount": 0.33,
+          "unit": "cup"
+        },
+        {
+          "item": "red wine vinegar",
+          "amount": 2,
+          "unit": "tablespoons"
+        },
+        {
+          "item": "dried oregano",
+          "amount": 1,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "salt",
+          "amount": 0.5,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "black pepper",
+          "amount": 0.25,
+          "unit": "teaspoon"
+        }
+      ],
+      "instructions": [
+        {
+          "instruction": "In a large bowl, combine cucumbers, tomatoes, red onion, and olives.",
+          "type": "mix"
+        },
+        {
+          "instruction": "In a small bowl, whisk together olive oil, red wine vinegar, oregano, salt, and pepper.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Pour dressing over vegetables and toss gently to combine.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Top with crumbled feta cheese.",
+          "type": "serve"
+        },
+        {
+          "instruction": "Let salad sit for 10 minutes to allow flavors to meld.",
+          "type": "rest"
+        },
+        {
+          "instruction": "Toss gently once more before serving.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Serve at room temperature or chilled.",
+          "type": "rest"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Banana Bread",
+      "servings": 10,
+      "prepTime": "15 minutes",
+      "cookTime": "60 minutes",
+      "category": "Dessert",
+      "description": "Moist and flavorful banana bread perfect for breakfast or snacks",
+      "ingredients": [
+        {
+          "item": "ripe bananas, mashed",
+          "amount": 3,
+          "unit": ""
+        },
+        {
+          "item": "all-purpose flour",
+          "amount": 1.5,
+          "unit": "cups"
+        },
+        {
+          "item": "baking soda",
+          "amount": 1,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "salt",
+          "amount": 0.5,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "butter, melted",
+          "amount": 0.5,
+          "unit": "cup"
+        },
+        {
+          "item": "brown sugar",
+          "amount": 0.75,
+          "unit": "cup"
+        },
+        {
+          "item": "egg, beaten",
+          "amount": 1,
+          "unit": ""
+        },
+        {
+          "item": "vanilla extract",
+          "amount": 1,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "chopped walnuts (optional)",
+          "amount": 0.5,
+          "unit": "cup"
+        }
+      ],
+      "instructions": [
+        {
+          "instruction": "Preheat oven to 350°F (175°C). Grease a 9x5 inch loaf pan.",
+          "type": "prep"
+        },
+        {
+          "instruction": "In a mixing bowl, mash the ripe bananas with a fork until smooth.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Stir the melted butter into the mashed bananas.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Mix in baking soda and salt.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Stir in brown sugar, beaten egg, and vanilla extract.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Mix in flour until just incorporated. Don't overmix.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Fold in walnuts if using.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Pour batter into prepared loaf pan.",
+          "type": "prep"
+        },
+        {
+          "instruction": "Bake for 60-65 minutes until a toothpick inserted in center comes out clean.",
+          "type": "bake"
+        },
+        {
+          "instruction": "Cool in pan for 10 minutes, then turn out onto a wire rack to cool completely.",
+          "type": "rest"
+        }
+      ]
+    }
+  ]
+}
