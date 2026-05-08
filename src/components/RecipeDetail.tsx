@@ -63,7 +63,7 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
         {/* Recipe Photos */}
         {recipe.photos && recipe.photos.length > 0 && (
           <>
-            <Divider />
+            <Divider color="#E8DDD0" />
             <div>
               <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="md">
                 {recipe.photos.map((photo, index) => (
@@ -87,7 +87,7 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
           </>
         )}
 
-        <Divider />
+        <Divider color="#E8DDD0" />
 
         {/* Servings Slider */}
         <div>
@@ -141,18 +141,25 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
           </Text>
         </div>
 
-        <Divider />
+        <Divider color="#E8DDD0" />
 
         {/* Ingredients */}
         <div>
-          <Text fw={500} size="lg" mb="md" component="h2">
+          <Text
+            fw={500}
+            size="xs"
+            component="h2"
+            c="#2C2416"
+            mb="md"
+            style={{ textTransform: 'uppercase', letterSpacing: '0.08em' }}
+          >
             Ingredients
           </Text>
 
-          <List spacing="sm" size="sm" component="ul">
+          <List spacing="xs" size="sm" component="ul" styles={{ itemWrapper: { lineHeight: 1.9 } }}>
             {scaledIngredients.map((ingredient, index) => (
               <List.Item key={index}>
-                <Text component="span">
+                <Text component="span" c="#2C2416">
                   <strong>{formatAmount(ingredient.amount)}</strong>
                   {ingredient.unit && ` ${ingredient.unit}`} {ingredient.item}
                 </Text>
