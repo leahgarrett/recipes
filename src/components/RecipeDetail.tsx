@@ -168,7 +168,7 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
           </List>
         </div>
 
-        <Divider />
+        <Divider color="#E8DDD0" />
 
         {/* Instructions */}
         <div>
