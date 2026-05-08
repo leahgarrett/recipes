@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import { MantineProvider } from '@mantine/core';
+import { screen } from '@testing-library/react';
 import { RecipeDetail } from './RecipeDetail';
 import { Recipe } from '../types/Recipe';
+import { renderWithTheme } from '../test/render';
 
 const mockRecipe: Recipe = {
   id: '1',
@@ -22,20 +22,17 @@ const mockRecipe: Recipe = {
   ]
 };
 
-function renderWithMantine(component: React.ReactElement) {
-  return render(<MantineProvider>{component}</MantineProvider>);
-}
 
 describe('RecipeDetail', () => {
   it('should render recipe name and description', () => {
-    renderWithMantine(<RecipeDetail recipe={mockRecipe} />);
+    renderWithTheme(<RecipeDetail recipe={mockRecipe} />);
 
     expect(screen.getByText('Test Pancakes')).toBeInTheDocument();
     expect(screen.getByText('Delicious pancakes')).toBeInTheDocument();
   });
 
   it('should render ingredients list', () => {
-    const { container } = renderWithMantine(<RecipeDetail recipe={mockRecipe} />);
+    const { container } = renderWithTheme(<RecipeDetail recipe={mockRecipe} />);
 
     // Check that the Ingredients heading is present
     expect(screen.getByRole('heading', { name: 'Ingredients' })).toBeInTheDocument();
@@ -46,14 +43,14 @@ describe('RecipeDetail', () => {
   });
 
   it('should render instructions', () => {
-    renderWithMantine(<RecipeDetail recipe={mockRecipe} />);
+    renderWithTheme(<RecipeDetail recipe={mockRecipe} />);
 
     expect(screen.getByText('Mix ingredients')).toBeInTheDocument();
     expect(screen.getByText('Cook on griddle')).toBeInTheDocument();
   });
 
   it('should display initial servings', () => {
-    renderWithMantine(<RecipeDetail recipe={mockRecipe} />);
+    renderWithTheme(<RecipeDetail recipe={mockRecipe} />);
 
     // Look for the badge that shows current servings
     const servingsBadge = screen.getByText('4');
@@ -61,7 +58,7 @@ describe('RecipeDetail', () => {
   });
 
   it('should have accessible servings slider', () => {
-    renderWithMantine(<RecipeDetail recipe={mockRecipe} />);
+    renderWithTheme(<RecipeDetail recipe={mockRecipe} />);
 
     const slider = screen.getByRole('slider');
     expect(slider).toBeInTheDocument();
@@ -69,7 +66,7 @@ describe('RecipeDetail', () => {
   });
 
   it('should update ingredients when servings change', () => {
-    renderWithMantine(<RecipeDetail recipe={mockRecipe} />);
+    renderWithTheme(<RecipeDetail recipe={mockRecipe} />);
 
     const slider = screen.getByRole('slider');
 

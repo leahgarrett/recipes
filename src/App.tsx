@@ -3,6 +3,7 @@ import { MantineProvider, AppShell, Container, Title, Text, Loader, Center, Grid
 import { RecipeList } from './components/RecipeList';
 import { RecipeDetail } from './components/RecipeDetail';
 import { Recipe, RecipesData } from './types/Recipe';
+import { theme } from './theme';
 import '@mantine/core/styles.css';
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
 
   if (loading) {
     return (
-      <MantineProvider>
+      <MantineProvider theme={theme}>
         <Center style={{ height: '100vh' }}>
           <Loader size="xl" aria-label="Loading recipes" />
         </Center>
@@ -45,7 +46,7 @@ function App() {
 
   if (error) {
     return (
-      <MantineProvider>
+      <MantineProvider theme={theme}>
         <Center style={{ height: '100vh' }}>
           <Text c="red" role="alert">
             Error: {error}
@@ -56,7 +57,7 @@ function App() {
   }
 
   return (
-    <MantineProvider defaultColorScheme="light">
+    <MantineProvider theme={theme}>
       <AppShell
         header={{ height: 60 }}
         padding="md"
