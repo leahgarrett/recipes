@@ -172,19 +172,41 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
 
         {/* Instructions */}
         <div>
-          <Text fw={500} size="lg" mb="md" component="h2">
+          <Text
+            fw={500}
+            size="xs"
+            component="h2"
+            c="#2C2416"
+            mb="md"
+            style={{ textTransform: 'uppercase', letterSpacing: '0.08em' }}
+          >
             Instructions
           </Text>
 
-          <List spacing="xl" size="sm" type="ordered">
+          <ol style={{ listStyle: 'none', padding: 0, margin: 0 }}>
             {recipe.instructions.map((step, index) => (
-              <List.Item key={index}>
+              <li key={index} style={{ display: 'grid', gridTemplateColumns: '32px 1fr', gap: '12px', marginBottom: 24 }}>
+                <Text fw={600} c="#8B6F47" style={{ fontSize: 18, lineHeight: 1 }}>
+                  {index + 1}
+                </Text>
                 <Stack gap="sm">
                   <div>
-                    <Badge size="sm" variant="dot" color="gray" mb="xs">
+                    <Badge
+                      variant="outline"
+                      size="xs"
+                      style={{
+                        borderColor: '#E8DDD0',
+                        color: '#8B6F47',
+                        backgroundColor: 'transparent',
+                        marginBottom: 6,
+                      }}
+                      styles={{ root: { fontWeight: 500, letterSpacing: '0.07em' } }}
+                    >
                       {step.type}
                     </Badge>
-                    <Text>{step.instruction}</Text>
+                    <Text c="#2C2416" style={{ lineHeight: 1.6 }}>
+                      {step.instruction}
+                    </Text>
                   </div>
 
                   {step.photos && step.photos.length > 0 && (
@@ -199,7 +221,7 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
                             fit="cover"
                           />
                           {photo.caption && (
-                            <Text size="xs" c="dimmed" mt="xs">
+                            <Text size="xs" c="#8B6F47" mt="xs">
                               {photo.caption}
                             </Text>
                           )}
@@ -208,9 +230,9 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
                     </SimpleGrid>
                   )}
                 </Stack>
-              </List.Item>
+              </li>
             ))}
-          </List>
+          </ol>
         </div>
       </Stack>
     </Card>
