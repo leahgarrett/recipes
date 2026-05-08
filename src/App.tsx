@@ -62,11 +62,18 @@ function App() {
         header={{ height: 60 }}
         padding="md"
       >
-        <AppShell.Header>
-          <Container size="xl" h="100%" style={{ display: 'flex', alignItems: 'center' }}>
-            <Title order={1} size="h2">
+        <AppShell.Header style={{ backgroundColor: '#FAF6F0', borderBottom: '1px solid #E8DDD0' }}>
+          <Container size="xl" h="100%" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <Title order={1} size="h2" c="#2C2416" style={{ letterSpacing: '-0.01em' }}>
               Recipe Browser
             </Title>
+            <Text
+              size="xs"
+              c="#8B6F47"
+              style={{ textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 500 }}
+            >
+              {recipes.length} {recipes.length === 1 ? 'Recipe' : 'Recipes'}
+            </Text>
           </Container>
         </AppShell.Header>
 
