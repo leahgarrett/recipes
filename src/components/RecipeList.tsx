@@ -28,26 +28,37 @@ export function RecipeList({ recipes, onSelectRecipe, selectedRecipeId }: Recipe
     <Stack gap="md">
       <TextInput
         placeholder="Search recipes..."
-        leftSection={<IconSearch size={16} />}
+        leftSection={<IconSearch size={16} color="#8B6F47" />}
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.currentTarget.value)}
         aria-label="Search recipes by name or description"
+        styles={{
+          input: { backgroundColor: '#FFFFFF', borderColor: '#E8DDD0', color: '#2C2416' },
+        }}
       />
 
       <Select
         placeholder="Filter by category"
         data={[
           { value: '', label: 'All Categories' },
-          ...categories.map(cat => ({ value: cat, label: cat }))
+          ...categories.map(cat => ({ value: cat, label: cat })),
         ]}
         value={categoryFilter}
         onChange={setCategoryFilter}
         clearable
         aria-label="Filter recipes by category"
+        styles={{
+          input: { backgroundColor: '#FFFFFF', borderColor: '#E8DDD0', color: '#2C2416' },
+        }}
       />
 
-      <Text size="sm" c="dimmed" aria-live="polite">
-        Showing {filteredRecipes.length} of {recipes.length} recipes
+      <Text
+        size="xs"
+        c="#8B6F47"
+        aria-live="polite"
+        style={{ textTransform: 'uppercase', letterSpacing: '0.07em', fontWeight: 500 }}
+      >
+        Showing {filteredRecipes.length} of {recipes.length} {recipes.length === 1 ? 'recipe' : 'recipes'}
       </Text>
 
       <Stack gap="sm" component="ul" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
