@@ -28,7 +28,7 @@ export function RecipeList({ recipes, onSelectRecipe, selectedRecipeId }: Recipe
     <Stack gap="md">
       <TextInput
         placeholder="Search recipes..."
-        leftSection={<IconSearch size={16} color="#8B6F47" />}
+        leftSection={<IconSearch size={16} color="#7A6240" />}
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.currentTarget.value)}
         aria-label="Search recipes by name or description"
@@ -54,7 +54,7 @@ export function RecipeList({ recipes, onSelectRecipe, selectedRecipeId }: Recipe
 
       <Text
         size="xs"
-        c="#8B6F47"
+        c="#7A6240"
         aria-live="polite"
         style={{ textTransform: 'uppercase', letterSpacing: '0.07em', fontWeight: 500 }}
       >
@@ -72,13 +72,13 @@ export function RecipeList({ recipes, onSelectRecipe, selectedRecipeId }: Recipe
               style={{
                 cursor: 'pointer',
                 backgroundColor: selectedRecipeId === recipe.id ? '#FFFFFF' : '#FAF6F0',
-                borderColor: selectedRecipeId === recipe.id ? '#8B6F47' : '#E8DDD0',
+                borderColor: selectedRecipeId === recipe.id ? '#7A6240' : '#E8DDD0',
                 borderWidth: selectedRecipeId === recipe.id ? 1.5 : 1,
                 transition: 'border-color 120ms ease',
               }}
               onMouseEnter={(e) => {
                 if (selectedRecipeId !== recipe.id) {
-                  e.currentTarget.style.borderColor = '#8B6F47';
+                  e.currentTarget.style.borderColor = '#7A6240';
                 }
               }}
               onMouseLeave={(e) => {
@@ -107,7 +107,7 @@ export function RecipeList({ recipes, onSelectRecipe, selectedRecipeId }: Recipe
                   color={selectedRecipeId === recipe.id ? 'brown' : 'gray'}
                   style={
                     selectedRecipeId === recipe.id
-                      ? { backgroundColor: '#8B6F47', color: '#FAF6F0' }
+                      ? { backgroundColor: '#7A6240', color: '#FAF6F0' }
                       : { backgroundColor: '#E8DDD0', color: '#2C2416' }
                   }
                   styles={{ root: { fontWeight: 500, letterSpacing: '0.06em' } }}
@@ -116,18 +116,18 @@ export function RecipeList({ recipes, onSelectRecipe, selectedRecipeId }: Recipe
                 </Badge>
               </Group>
 
-              <Text size="sm" c="#8B6F47" mb="sm" style={{ lineHeight: 1.5 }}>
+              <Text size="sm" c="#7A6240" mb="sm" style={{ lineHeight: 1.5 }}>
                 {recipe.description}
               </Text>
 
               <Group gap="xs">
-                <Text size="xs" c="#8B6F47" style={{ textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                <Text size="xs" c="#7A6240" style={{ textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                   <span aria-label="Preparation time">⏱ Prep {recipe.prepTime}</span>
                 </Text>
-                <Text size="xs" c="#8B6F47" style={{ textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                <Text size="xs" c="#7A6240" style={{ textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                   <span aria-label="Cooking time">· Cook {recipe.cookTime}</span>
                 </Text>
-                <Text size="xs" c="#8B6F47" style={{ textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                <Text size="xs" c="#7A6240" style={{ textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                   <span aria-label="Number of servings">· Serves {recipe.servings}</span>
                 </Text>
               </Group>

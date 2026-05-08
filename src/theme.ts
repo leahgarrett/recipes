@@ -3,7 +3,7 @@ import { createTheme, type MantineColorsTuple } from '@mantine/core';
 export const palette = {
   cream: '#FAF6F0',
   sand: '#E8DDD0',
-  brown: '#8B6F47',
+  brown: '#7A6240',
   espresso: '#2C2416',
 } as const;
 
@@ -14,7 +14,7 @@ const brown: MantineColorsTuple = [
   '#C5A87C',
   '#B08F60',
   '#9C7B50',
-  '#8B6F47', // primary shade
+  '#7A6240', // primary shade
   '#6F5839',
   '#54422B',
   '#3A2D1E',

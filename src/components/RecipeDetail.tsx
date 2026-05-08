@@ -46,15 +46,15 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
             </Badge>
           </Group>
 
-          <Text size="md" c="#8B6F47" mb="md" style={{ lineHeight: 1.5 }}>
+          <Text size="md" c="#7A6240" mb="md" style={{ lineHeight: 1.5 }}>
             {recipe.description}
           </Text>
 
           <Group gap="md">
-            <Text size="xs" c="#8B6F47" style={{ textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+            <Text size="xs" c="#7A6240" style={{ textTransform: 'uppercase', letterSpacing: '0.06em' }}>
               <span aria-label="Preparation time">⏱ Prep {recipe.prepTime}</span>
             </Text>
-            <Text size="xs" c="#8B6F47" style={{ textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+            <Text size="xs" c="#7A6240" style={{ textTransform: 'uppercase', letterSpacing: '0.06em' }}>
               <span aria-label="Cooking time">· Cook {recipe.cookTime}</span>
             </Text>
           </Group>
@@ -104,7 +104,7 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
             <Badge
               size="lg"
               aria-live="polite"
-              style={{ backgroundColor: '#8B6F47', color: '#FAF6F0' }}
+              style={{ backgroundColor: '#7A6240', color: '#FAF6F0' }}
               styles={{ root: { fontWeight: 600 } }}
             >
               {servings}
@@ -120,10 +120,10 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
             color="brown"
             styles={{
               track: { backgroundColor: '#E8DDD0' },
-              bar: { backgroundColor: '#8B6F47' },
-              thumb: { backgroundColor: '#8B6F47', borderColor: '#FAF6F0' },
-              mark: { backgroundColor: '#8B6F47', borderColor: '#8B6F47' },
-              markLabel: { color: '#8B6F47', fontSize: 11, letterSpacing: '0.04em' },
+              bar: { backgroundColor: '#7A6240' },
+              thumb: { backgroundColor: '#7A6240', borderColor: '#FAF6F0' },
+              mark: { backgroundColor: '#7A6240', borderColor: '#7A6240' },
+              markLabel: { color: '#7A6240', fontSize: 11, letterSpacing: '0.04em' },
             }}
             marks={[
               { value: recipe.servings, label: `${recipe.servings} (original)` }
@@ -136,7 +136,7 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
             aria-valuetext={`${servings} servings`}
           />
 
-          <Text size="xs" c="#8B6F47" mt="xs" ta="center" style={{ letterSpacing: '0.04em' }}>
+          <Text size="xs" c="#7A6240" mt="xs" ta="center" style={{ letterSpacing: '0.04em' }}>
             Slide to adjust ingredient quantities
           </Text>
         </div>
@@ -186,7 +186,7 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
           <ol style={{ listStyle: 'none', padding: 0, margin: 0 }}>
             {recipe.instructions.map((step, index) => (
               <li key={index} style={{ display: 'grid', gridTemplateColumns: '32px 1fr', gap: '12px', marginBottom: 24 }}>
-                <Text fw={600} c="#8B6F47" style={{ fontSize: 18, lineHeight: 1 }}>
+                <Text fw={600} c="#7A6240" style={{ fontSize: 18, lineHeight: 1 }}>
                   {index + 1}
                 </Text>
                 <Stack gap="sm">
@@ -196,7 +196,7 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
                       size="xs"
                       style={{
                         borderColor: '#E8DDD0',
-                        color: '#8B6F47',
+                        color: '#7A6240',
                         backgroundColor: 'transparent',
                         marginBottom: 6,
                       }}
@@ -221,7 +221,7 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
                             fit="cover"
                           />
                           {photo.caption && (
-                            <Text size="xs" c="#8B6F47" mt="xs">
+                            <Text size="xs" c="#7A6240" mt="xs">
                               {photo.caption}
                             </Text>
                           )}

@@ -6,7 +6,7 @@ describe('theme', () => {
     expect(palette).toEqual({
       cream: '#FAF6F0',
       sand: '#E8DDD0',
-      brown: '#8B6F47',
+      brown: '#7A6240',
       espresso: '#2C2416',
     });
   });
@@ -14,7 +14,7 @@ describe('theme', () => {
   it('registers brown as a Mantine color scale with primary shade 6', () => {
     expect(theme.colors?.brown).toBeDefined();
     expect(theme.colors?.brown).toHaveLength(10);
-    expect(theme.colors?.brown?.[6]).toBe('#8B6F47');
+    expect(theme.colors?.brown?.[6]).toBe('#7A6240');
     expect(theme.primaryColor).toBe('brown');
     expect(theme.primaryShade).toEqual({ light: 6, dark: 6 });
   });

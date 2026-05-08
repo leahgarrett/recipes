@@ -69,7 +69,7 @@ function App() {
             </Title>
             <Text
               size="xs"
-              c="#8B6F47"
+              c="#7A6240"
               style={{ textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 500 }}
             >
               {recipes.length} {recipes.length === 1 ? 'Recipe' : 'Recipes'}
