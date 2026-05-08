@@ -92,10 +92,21 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
         {/* Servings Slider */}
         <div>
           <Group justify="space-between" mb="md">
-            <Text fw={500} size="lg" component="h2">
+            <Text
+              fw={500}
+              size="xs"
+              component="h2"
+              c="#2C2416"
+              style={{ textTransform: 'uppercase', letterSpacing: '0.08em' }}
+            >
               Servings
             </Text>
-            <Badge size="xl" variant="filled" color="blue" aria-live="polite">
+            <Badge
+              size="lg"
+              aria-live="polite"
+              style={{ backgroundColor: '#8B6F47', color: '#FAF6F0' }}
+              styles={{ root: { fontWeight: 600 } }}
+            >
               {servings}
             </Badge>
           </Group>
@@ -106,6 +117,14 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
             min={1}
             max={recipe.servings * 3}
             step={1}
+            color="brown"
+            styles={{
+              track: { backgroundColor: '#E8DDD0' },
+              bar: { backgroundColor: '#8B6F47' },
+              thumb: { backgroundColor: '#8B6F47', borderColor: '#FAF6F0' },
+              mark: { backgroundColor: '#8B6F47', borderColor: '#8B6F47' },
+              markLabel: { color: '#8B6F47', fontSize: 11, letterSpacing: '0.04em' },
+            }}
             marks={[
               { value: recipe.servings, label: `${recipe.servings} (original)` }
             ]}
@@ -117,7 +136,7 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
             aria-valuetext={`${servings} servings`}
           />
 
-          <Text size="xs" c="dimmed" mt="xs" ta="center">
+          <Text size="xs" c="#8B6F47" mt="xs" ta="center" style={{ letterSpacing: '0.04em' }}>
             Slide to adjust ingredient quantities
           </Text>
         </div>
