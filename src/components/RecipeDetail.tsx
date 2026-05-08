@@ -17,29 +17,45 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
   );
 
   return (
-    <Card shadow="sm" padding="xl" radius="md" withBorder>
+    <Card
+      shadow="none"
+      padding="xl"
+      radius="md"
+      withBorder
+      style={{ backgroundColor: '#FFFFFF', borderColor: '#E8DDD0' }}
+    >
       <Stack gap="lg">
         {/* Header */}
         <div>
-          <Group justify="space-between" mb="xs">
-            <Text size="xl" fw={700} component="h1">
+          <Group justify="space-between" mb="xs" wrap="nowrap" align="flex-start">
+            <Text
+              size="xl"
+              fw={600}
+              component="h1"
+              c="#2C2416"
+              style={{ fontSize: '28px', letterSpacing: '-0.02em', lineHeight: 1.15 }}
+            >
               {recipe.name}
             </Text>
-            <Badge color="blue" size="lg" variant="light">
+            <Badge
+              size="lg"
+              style={{ backgroundColor: '#E8DDD0', color: '#2C2416' }}
+              styles={{ root: { fontWeight: 500, letterSpacing: '0.06em' } }}
+            >
               {recipe.category}
             </Badge>
           </Group>
 
-          <Text size="md" c="dimmed" mb="md">
+          <Text size="md" c="#8B6F47" mb="md" style={{ lineHeight: 1.5 }}>
             {recipe.description}
           </Text>
 
           <Group gap="md">
-            <Text size="sm" c="dimmed">
-              <span aria-label="Preparation time">⏱️ Prep: {recipe.prepTime}</span>
+            <Text size="xs" c="#8B6F47" style={{ textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+              <span aria-label="Preparation time">⏱ Prep {recipe.prepTime}</span>
             </Text>
-            <Text size="sm" c="dimmed">
-              <span aria-label="Cooking time">👨‍🍳 Cook: {recipe.cookTime}</span>
+            <Text size="xs" c="#8B6F47" style={{ textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+              <span aria-label="Cooking time">· Cook {recipe.cookTime}</span>
             </Text>
           </Group>
         </div>
