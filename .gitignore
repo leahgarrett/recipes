@@ -28,3 +28,6 @@ coverage
 
 # Brainstorming session files
 .superpowers/
+
+# Git worktrees
+.worktrees/
