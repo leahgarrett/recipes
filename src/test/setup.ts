@@ -1,8 +1,10 @@
 import { expect, afterEach, vi } from 'vitest';
 import { cleanup } from '@testing-library/react';
 import * as matchers from '@testing-library/jest-dom/matchers';
+import * as axeMatchers from 'vitest-axe/matchers';
 
 expect.extend(matchers);
+expect.extend(axeMatchers);
 
 // Mock window.matchMedia for Mantine components
 Object.defineProperty(window, 'matchMedia', {
