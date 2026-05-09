@@ -1,9 +1,9 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { MantineProvider } from '@mantine/core';
 import { RecipeList } from './RecipeList';
 import { Recipe } from '../types/Recipe';
+import { renderWithTheme } from '../test/render';
 
 const mockRecipes: Recipe[] = [
   {
@@ -34,14 +34,11 @@ const mockRecipes: Recipe[] = [
   }
 ];
 
-function renderWithMantine(component: React.ReactElement) {
-  return render(<MantineProvider>{component}</MantineProvider>);
-}
 
 describe('RecipeList', () => {
   it('should render all recipes', () => {
     const onSelectRecipe = vi.fn();
-    renderWithMantine(
+    renderWithTheme(
       <RecipeList recipes={mockRecipes} onSelectRecipe={onSelectRecipe} />
     );
 
@@ -52,7 +49,7 @@ describe('RecipeList', () => {
   it('should call onSelectRecipe when a recipe is clicked', async () => {
     const user = userEvent.setup();
     const onSelectRecipe = vi.fn();
-    renderWithMantine(
+    renderWithTheme(
       <RecipeList recipes={mockRecipes} onSelectRecipe={onSelectRecipe} />
     );
 
@@ -68,7 +65,7 @@ describe('RecipeList', () => {
   it('should filter recipes by search term', async () => {
     const user = userEvent.setup();
     const onSelectRecipe = vi.fn();
-    renderWithMantine(
+    renderWithTheme(
       <RecipeList recipes={mockRecipes} onSelectRecipe={onSelectRecipe} />
     );
 
@@ -81,7 +78,7 @@ describe('RecipeList', () => {
 
   it('should have accessible search input', () => {
     const onSelectRecipe = vi.fn();
-    renderWithMantine(
+    renderWithTheme(
       <RecipeList recipes={mockRecipes} onSelectRecipe={onSelectRecipe} />
     );
 
@@ -92,7 +89,7 @@ describe('RecipeList', () => {
 
   it('should show recipe count', () => {
     const onSelectRecipe = vi.fn();
-    renderWithMantine(
+    renderWithTheme(
       <RecipeList recipes={mockRecipes} onSelectRecipe={onSelectRecipe} />
     );
 

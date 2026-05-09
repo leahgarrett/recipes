@@ -17,29 +17,45 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
   );
 
   return (
-    <Card shadow="sm" padding="xl" radius="md" withBorder>
+    <Card
+      shadow="none"
+      padding="xl"
+      radius="md"
+      withBorder
+      style={{ backgroundColor: '#FFFFFF', borderColor: '#E8DDD0' }}
+    >
       <Stack gap="lg">
         {/* Header */}
         <div>
-          <Group justify="space-between" mb="xs">
-            <Text size="xl" fw={700} component="h1">
+          <Group justify="space-between" mb="xs" wrap="nowrap" align="flex-start">
+            <Text
+              size="xl"
+              fw={600}
+              component="h1"
+              c="#2C2416"
+              style={{ fontSize: '28px', letterSpacing: '-0.02em', lineHeight: 1.15 }}
+            >
               {recipe.name}
             </Text>
-            <Badge color="blue" size="lg" variant="light">
+            <Badge
+              size="lg"
+              style={{ backgroundColor: '#E8DDD0', color: '#2C2416' }}
+              styles={{ root: { fontWeight: 500, letterSpacing: '0.06em' } }}
+            >
               {recipe.category}
             </Badge>
           </Group>
 
-          <Text size="md" c="dimmed" mb="md">
+          <Text size="md" c="#7A6240" mb="md" style={{ lineHeight: 1.5 }}>
             {recipe.description}
           </Text>
 
           <Group gap="md">
-            <Text size="sm" c="dimmed">
-              <span aria-label="Preparation time">⏱️ Prep: {recipe.prepTime}</span>
+            <Text size="xs" c="#7A6240" style={{ textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+              <span aria-label="Preparation time">⏱ Prep {recipe.prepTime}</span>
             </Text>
-            <Text size="sm" c="dimmed">
-              <span aria-label="Cooking time">👨‍🍳 Cook: {recipe.cookTime}</span>
+            <Text size="xs" c="#7A6240" style={{ textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+              <span aria-label="Cooking time">· Cook {recipe.cookTime}</span>
             </Text>
           </Group>
         </div>
@@ -47,7 +63,7 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
         {/* Recipe Photos */}
         {recipe.photos && recipe.photos.length > 0 && (
           <>
-            <Divider />
+            <Divider color="#E8DDD0" />
             <div>
               <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="md">
                 {recipe.photos.map((photo, index) => (
@@ -71,15 +87,26 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
           </>
         )}
 
-        <Divider />
+        <Divider color="#E8DDD0" />
 
         {/* Servings Slider */}
         <div>
           <Group justify="space-between" mb="md">
-            <Text fw={500} size="lg" component="h2">
+            <Text
+              fw={500}
+              size="xs"
+              component="h2"
+              c="#2C2416"
+              style={{ textTransform: 'uppercase', letterSpacing: '0.08em' }}
+            >
               Servings
             </Text>
-            <Badge size="xl" variant="filled" color="blue" aria-live="polite">
+            <Badge
+              size="lg"
+              aria-live="polite"
+              style={{ backgroundColor: '#7A6240', color: '#FAF6F0' }}
+              styles={{ root: { fontWeight: 600 } }}
+            >
               {servings}
             </Badge>
           </Group>
@@ -90,6 +117,14 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
             min={1}
             max={recipe.servings * 3}
             step={1}
+            color="brown"
+            styles={{
+              track: { backgroundColor: '#E8DDD0' },
+              bar: { backgroundColor: '#7A6240' },
+              thumb: { backgroundColor: '#7A6240', borderColor: '#FAF6F0' },
+              mark: { backgroundColor: '#7A6240', borderColor: '#7A6240' },
+              markLabel: { color: '#7A6240', fontSize: 11, letterSpacing: '0.04em' },
+            }}
             marks={[
               { value: recipe.servings, label: `${recipe.servings} (original)` }
             ]}
@@ -101,23 +136,30 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
             aria-valuetext={`${servings} servings`}
           />
 
-          <Text size="xs" c="dimmed" mt="xs" ta="center">
+          <Text size="xs" c="#7A6240" mt="xs" ta="center" style={{ letterSpacing: '0.04em' }}>
             Slide to adjust ingredient quantities
           </Text>
         </div>
 
-        <Divider />
+        <Divider color="#E8DDD0" />
 
         {/* Ingredients */}
         <div>
-          <Text fw={500} size="lg" mb="md" component="h2">
+          <Text
+            fw={500}
+            size="xs"
+            component="h2"
+            c="#2C2416"
+            mb="md"
+            style={{ textTransform: 'uppercase', letterSpacing: '0.08em' }}
+          >
             Ingredients
           </Text>
 
-          <List spacing="sm" size="sm" component="ul">
+          <List spacing="xs" size="sm" component="ul" styles={{ itemWrapper: { lineHeight: 1.9 } }}>
             {scaledIngredients.map((ingredient, index) => (
               <List.Item key={index}>
-                <Text component="span">
+                <Text component="span" c="#2C2416">
                   <strong>{formatAmount(ingredient.amount)}</strong>
                   {ingredient.unit && ` ${ingredient.unit}`} {ingredient.item}
                 </Text>
@@ -126,23 +168,45 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
           </List>
         </div>
 
-        <Divider />
+        <Divider color="#E8DDD0" />
 
         {/* Instructions */}
         <div>
-          <Text fw={500} size="lg" mb="md" component="h2">
+          <Text
+            fw={500}
+            size="xs"
+            component="h2"
+            c="#2C2416"
+            mb="md"
+            style={{ textTransform: 'uppercase', letterSpacing: '0.08em' }}
+          >
             Instructions
           </Text>
 
-          <List spacing="xl" size="sm" type="ordered">
+          <ol style={{ listStyle: 'none', padding: 0, margin: 0 }}>
             {recipe.instructions.map((step, index) => (
-              <List.Item key={index}>
+              <li key={index} style={{ display: 'grid', gridTemplateColumns: '32px 1fr', gap: '12px', marginBottom: 24 }}>
+                <Text fw={600} c="#7A6240" style={{ fontSize: 18, lineHeight: 1 }}>
+                  {index + 1}
+                </Text>
                 <Stack gap="sm">
                   <div>
-                    <Badge size="sm" variant="dot" color="gray" mb="xs">
+                    <Badge
+                      variant="outline"
+                      size="xs"
+                      style={{
+                        borderColor: '#E8DDD0',
+                        color: '#7A6240',
+                        backgroundColor: 'transparent',
+                        marginBottom: 6,
+                      }}
+                      styles={{ root: { fontWeight: 500, letterSpacing: '0.07em' } }}
+                    >
                       {step.type}
                     </Badge>
-                    <Text>{step.instruction}</Text>
+                    <Text c="#2C2416" style={{ lineHeight: 1.6 }}>
+                      {step.instruction}
+                    </Text>
                   </div>
 
                   {step.photos && step.photos.length > 0 && (
@@ -157,7 +221,7 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
                             fit="cover"
                           />
                           {photo.caption && (
-                            <Text size="xs" c="dimmed" mt="xs">
+                            <Text size="xs" c="#7A6240" mt="xs">
                               {photo.caption}
                             </Text>
                           )}
@@ -166,9 +230,9 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
                     </SimpleGrid>
                   )}
                 </Stack>
-              </List.Item>
+              </li>
             ))}
-          </List>
+          </ol>
         </div>
       </Stack>
     </Card>

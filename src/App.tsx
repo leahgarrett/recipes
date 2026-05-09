@@ -3,6 +3,7 @@ import { MantineProvider, AppShell, Container, Title, Text, Loader, Center, Grid
 import { RecipeList } from './components/RecipeList';
 import { RecipeDetail } from './components/RecipeDetail';
 import { Recipe, RecipesData } from './types/Recipe';
+import { theme } from './theme';
 import '@mantine/core/styles.css';
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
 
   if (loading) {
     return (
-      <MantineProvider>
+      <MantineProvider theme={theme}>
         <Center style={{ height: '100vh' }}>
           <Loader size="xl" aria-label="Loading recipes" />
         </Center>
@@ -45,7 +46,7 @@ function App() {
 
   if (error) {
     return (
-      <MantineProvider>
+      <MantineProvider theme={theme}>
         <Center style={{ height: '100vh' }}>
           <Text c="red" role="alert">
             Error: {error}
@@ -56,16 +57,23 @@ function App() {
   }
 
   return (
-    <MantineProvider defaultColorScheme="light">
+    <MantineProvider theme={theme}>
       <AppShell
         header={{ height: 60 }}
         padding="md"
       >
-        <AppShell.Header>
-          <Container size="xl" h="100%" style={{ display: 'flex', alignItems: 'center' }}>
-            <Title order={1} size="h2">
+        <AppShell.Header style={{ backgroundColor: '#FAF6F0', borderBottom: '1px solid #E8DDD0' }}>
+          <Container size="xl" h="100%" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <Title order={1} size="h2" c="#2C2416" style={{ letterSpacing: '-0.01em' }}>
               Recipe Browser
             </Title>
+            <Text
+              size="xs"
+              c="#7A6240"
+              style={{ textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 500 }}
+            >
+              {recipes.length} {recipes.length === 1 ? 'Recipe' : 'Recipes'}
+            </Text>
           </Container>
         </AppShell.Header>
 
