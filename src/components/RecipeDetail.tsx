@@ -9,7 +9,7 @@ interface RecipeDetailProps {
 
 export function RecipeDetail({ recipe }: RecipeDetailProps) {
   const [servings, setServings] = useState(recipe.servings);
-  const sliderRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   const scaledIngredients = scaleIngredients(
     recipe.ingredients,
@@ -19,8 +19,8 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
 
   // Fix Mantine Slider's empty aria-label on the thumb element
   useEffect(() => {
-    if (sliderRef.current) {
-      const thumb = sliderRef.current.querySelector('[role="slider"]');
+    if (cardRef.current) {
+      const thumb = cardRef.current.querySelector('[role="slider"]');
       if (thumb && !thumb.getAttribute('aria-label')) {
         thumb.setAttribute('aria-label', `Adjust servings, currently ${servings} servings. Original recipe serves ${recipe.servings}.`);
       }
@@ -29,7 +29,7 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
 
   return (
     <Card
-      ref={sliderRef}
+      ref={cardRef}
       shadow="none"
       padding="xl"
       radius="md"
