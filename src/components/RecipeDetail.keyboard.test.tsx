@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { screen } from '@testing-library/react';
+import { screen, within } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { renderWithTheme } from '../test/render';
 import { RecipeDetail } from './RecipeDetail';
@@ -75,7 +75,9 @@ describe('RecipeDetail keyboard', () => {
     expect(slider).toHaveAttribute('aria-valuenow', '8');
 
     // The "2" should now appear as an ingredient amount (2 cups flour, 2 cups milk).
-    const flourLine = screen.getByText(/flour/);
+    // Use getAllByRole('list')[0] because the component renders both ingredients (ul) and instructions (ol) lists.
+    const ingredientsList = screen.getAllByRole('list')[0];
+    const flourLine = within(ingredientsList).getByText(/flour/);
     expect(flourLine.textContent).toMatch(/2\s*cups?\s*flour/);
   });
 });
