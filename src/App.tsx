@@ -38,7 +38,10 @@ function App() {
     return (
       <MantineProvider theme={theme}>
         <Center style={{ height: '100vh' }}>
-          <Loader size="xl" aria-label="Loading recipes" />
+          {/* role="status" + aria-label on the wrapper; Loader's <span> cannot carry aria-label */}
+          <div role="status" aria-label="Loading recipes">
+            <Loader size="xl" />
+          </div>
         </Center>
       </MantineProvider>
     );
