@@ -1,5 +1,5 @@
 import { Card, Text, Group, Stack, Slider, Badge, Divider, List, Image, SimpleGrid } from '@mantine/core';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Recipe } from '../types/Recipe';
 import { scaleIngredients, formatAmount } from '../utils/recipeScaling';
 
@@ -9,6 +9,7 @@ interface RecipeDetailProps {
 
 export function RecipeDetail({ recipe }: RecipeDetailProps) {
   const [servings, setServings] = useState(recipe.servings);
+  const sliderRef = useRef<HTMLDivElement>(null);
 
   const scaledIngredients = scaleIngredients(
     recipe.ingredients,
@@ -16,8 +17,19 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
     servings
   );
 
+  // Fix Mantine Slider's empty aria-label on the thumb element
+  useEffect(() => {
+    if (sliderRef.current) {
+      const thumb = sliderRef.current.querySelector('[role="slider"]');
+      if (thumb && !thumb.getAttribute('aria-label')) {
+        thumb.setAttribute('aria-label', `Adjust servings, currently ${servings} servings. Original recipe serves ${recipe.servings}.`);
+      }
+    }
+  }, [servings, recipe.servings]);
+
   return (
     <Card
+      ref={sliderRef}
       shadow="none"
       padding="xl"
       radius="md"
@@ -130,10 +142,6 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
             ]}
             label={(value) => `${value} servings`}
             aria-label={`Adjust servings, currently ${servings} servings. Original recipe serves ${recipe.servings}.`}
-            aria-valuemin={1}
-            aria-valuemax={recipe.servings * 3}
-            aria-valuenow={servings}
-            aria-valuetext={`${servings} servings`}
           />
 
           <Text size="xs" c="#7A6240" mt="xs" ta="center" style={{ letterSpacing: '0.04em' }}>
