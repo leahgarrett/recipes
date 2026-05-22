@@ -145,6 +145,25 @@ Run tests with coverage:
 npm run test:coverage
 ```
 
+#### Screen reader testing
+
+Automated tests verify DOM structure and keyboard flow, but they cannot tell you if the experience is coherent when read aloud. Walk through these scenarios with a screen reader before each release, and after any change to `aria-*` attributes, focus handling, dynamic content (slider, filters), or page structure.
+
+**Tool:** VoiceOver on macOS — `Cmd+F5` to toggle, `Ctrl+Option+→/←` to navigate, `Ctrl+Option+U` to open the rotor.
+
+**Walkthrough scenarios:**
+
+1. **Open the app.** The header should announce as a banner; the recipe list and detail panel should announce as distinct regions.
+2. **Navigate the recipe list.** Each card should read as `[name], [category], prep [time], cook [time], serves [N], button, [pressed | not pressed]`.
+3. **Activate a card** with Enter or Space. Confirm focus management is sensible (focus stays on the card; the detail panel update is perceptible via region or live announcement).
+4. **Change servings.** With focus on the slider, press arrows. The slider should announce `[N] servings` after each press. Then navigate down to the ingredient list and confirm amounts have updated.
+5. **Search.** Type into the search input. The result count line (`Showing N of M recipes`) is in an `aria-live="polite"` region and should be announced. Empty results should announce the empty-state message.
+6. **Filter by category.** Same expectations as search.
+
+**Known limitations:**
+- The `color-contrast` axe rule is disabled in unit tests because jsdom does not apply external CSS. Contrast is verified manually; see `docs/superpowers/specs/2026-05-08-cookbook-palette-design.md` for the verified ratios (espresso on cream ≈ 14:1, brown on cream = 5.35:1).
+- The `region` axe rule does not produce violations in jsdom regardless of landmark structure, so landmark/region accessibility is verified through this manual walkthrough (scenario 1) rather than automated tests.
+
 ### Build
 
 Create a production build:
