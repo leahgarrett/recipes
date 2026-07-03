@@ -51,6 +51,7 @@ interface RecipesData { recipes: Recipe[]; }
   "name": "recipe-admin-backend",
   "version": "1.0.0",
   "private": true,
+  "engines": { "node": ">=20" },
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/server.ts",
@@ -91,8 +92,8 @@ interface RecipesData { recipes: Recipe[]; }
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
     "strict": true,
     "skipLibCheck": true,
@@ -101,7 +102,7 @@ interface RecipesData { recipes: Recipe[]; }
     "rootDir": "src",
     "types": ["node"]
   },
-  "include": ["src", "drizzle.config.ts"]
+  "include": ["src"]
 }
 ```
 
@@ -136,6 +137,11 @@ services:
       POSTGRES_DB: recipes
     ports:
       - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U recipes -d recipes"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
     volumes:
       - recipes_pgdata:/var/lib/postgresql/data
       - ./docker/init:/docker-entrypoint-initdb.d
