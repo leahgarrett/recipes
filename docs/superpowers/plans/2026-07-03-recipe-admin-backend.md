@@ -365,6 +365,16 @@ describe('recipe schemas', () => {
   it('recipesData wraps an array', () => {
     expect(recipesDataSchema.parse({ recipes: [validRecipe] }).recipes).toHaveLength(1);
   });
+
+  it('rejects a negative servings value', () => {
+    const bad = { ...validRecipe, servings: -1 };
+    expect(() => recipeSchema.parse(bad)).toThrow();
+  });
+
+  it('rejects a non-integer servings value', () => {
+    const bad = { ...validRecipe, servings: 1.5 };
+    expect(() => recipeSchema.parse(bad)).toThrow();
+  });
 });
 ```
 
