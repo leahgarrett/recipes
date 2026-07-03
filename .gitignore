@@ -27,7 +27,7 @@ dist-ssr
 coverage
 
 # Brainstorming session files
-.superpowers/
+# .superpowers/
 
 # Git worktrees
 .worktrees/

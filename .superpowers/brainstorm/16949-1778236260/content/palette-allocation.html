@@ -1,0 +1,92 @@
+<h2>Cookbook palette in context</h2>
+<p class="subtitle">How the four colors map to UI roles. The accent (toasted brown) carries CTAs and interactive states — and because it's restrained, it works even adjacent to photos.</p>
+
+<div class="section">
+  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px;">
+    <div style="text-align: center;">
+      <div style="background: #FAF6F0; height: 80px; border-radius: 8px; border: 1px solid #E8DDD0;"></div>
+      <div style="font-family: Georgia, serif; font-size: 13px; margin-top: 8px; color: #2C2416;"><strong>#FAF6F0</strong></div>
+      <div style="font-size: 11px; color: #8B6F47;">Page background</div>
+    </div>
+    <div style="text-align: center;">
+      <div style="background: #E8DDD0; height: 80px; border-radius: 8px;"></div>
+      <div style="font-family: Georgia, serif; font-size: 13px; margin-top: 8px; color: #2C2416;"><strong>#E8DDD0</strong></div>
+      <div style="font-size: 11px; color: #8B6F47;">Surfaces / dividers</div>
+    </div>
+    <div style="text-align: center;">
+      <div style="background: #8B6F47; height: 80px; border-radius: 8px;"></div>
+      <div style="font-family: Georgia, serif; font-size: 13px; margin-top: 8px; color: #2C2416;"><strong>#8B6F47</strong></div>
+      <div style="font-size: 11px; color: #8B6F47;">Interactive accent</div>
+    </div>
+    <div style="text-align: center;">
+      <div style="background: #2C2416; height: 80px; border-radius: 8px;"></div>
+      <div style="font-family: Georgia, serif; font-size: 13px; margin-top: 8px; color: #2C2416;"><strong>#2C2416</strong></div>
+      <div style="font-size: 11px; color: #8B6F47;">Ink / typography</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="label" style="margin-bottom: 16px;">Recipe Detail — header + photo + CTA</div>
+  <div style="background: #FAF6F0; padding: 32px; border-radius: 12px; border: 1px solid #E8DDD0;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+      <div style="font-family: Georgia, serif; font-size: 28px; font-weight: 700; color: #2C2416; line-height: 1.1;">Brown Butter Pancakes</div>
+      <div style="background: #E8DDD0; color: #2C2416; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; letter-spacing: 0.3px;">BREAKFAST</div>
+    </div>
+    <div style="font-family: Georgia, serif; font-style: italic; color: #8B6F47; font-size: 15px; margin-bottom: 16px;">Toasted, nutty, the kind of stack you slow down for.</div>
+    <div style="display: flex; gap: 16px; font-size: 13px; color: #8B6F47; margin-bottom: 24px;">
+      <span>⏱ Prep 10 min</span>
+      <span>· Cook 15 min</span>
+      <span>· Serves 4</span>
+    </div>
+    <div style="background: linear-gradient(135deg, #d4a574 0%, #c08e5a 50%, #8b5a3c 100%); height: 200px; border-radius: 8px; margin-bottom: 24px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.7); font-style: italic;">[ recipe photo ]</div>
+    <div style="display: flex; gap: 12px; align-items: center;">
+      <button style="background: #8B6F47; color: #FAF6F0; border: none; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; letter-spacing: 0.2px;">Start cooking</button>
+      <button style="background: transparent; color: #8B6F47; border: 1px solid #8B6F47; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer;">Save</button>
+      <a style="color: #8B6F47; text-decoration: underline; font-size: 14px; margin-left: auto;">Print recipe</a>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 32px;">
+  <div class="label" style="margin-bottom: 16px;">Recipe List — cards with selected state</div>
+  <div style="background: #FAF6F0; padding: 24px; border-radius: 12px; border: 1px solid #E8DDD0;">
+    <input style="background: white; border: 1px solid #E8DDD0; padding: 10px 14px; border-radius: 6px; width: 100%; font-size: 14px; margin-bottom: 16px; color: #2C2416;" placeholder="Search recipes..." readonly>
+
+    <div style="background: #FAF6F0; border: 2px solid #8B6F47; border-radius: 8px; padding: 16px; margin-bottom: 12px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+        <div style="font-family: Georgia, serif; font-size: 16px; font-weight: 600; color: #2C2416;">Brown Butter Pancakes</div>
+        <div style="background: #8B6F47; color: #FAF6F0; padding: 2px 10px; border-radius: 20px; font-size: 11px; font-weight: 500;">BREAKFAST</div>
+      </div>
+      <div style="color: #8B6F47; font-size: 13px;">Toasted, nutty, the kind of stack you slow down for.</div>
+      <div style="font-size: 11px; color: #8B6F47; margin-top: 8px;">⏱ 10 min · 👨‍🍳 15 min · 🍽 Serves 4</div>
+    </div>
+
+    <div style="background: white; border: 1px solid #E8DDD0; border-radius: 8px; padding: 16px; margin-bottom: 12px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+        <div style="font-family: Georgia, serif; font-size: 16px; font-weight: 600; color: #2C2416;">Slow-Roasted Tomato Pasta</div>
+        <div style="background: #E8DDD0; color: #2C2416; padding: 2px 10px; border-radius: 20px; font-size: 11px; font-weight: 500;">DINNER</div>
+      </div>
+      <div style="color: #8B6F47; font-size: 13px;">Six tomatoes, two hours, one perfect bowl.</div>
+      <div style="font-size: 11px; color: #8B6F47; margin-top: 8px;">⏱ 15 min · 👨‍🍳 2 hr · 🍽 Serves 4</div>
+    </div>
+
+    <div style="background: white; border: 1px solid #E8DDD0; border-radius: 8px; padding: 16px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+        <div style="font-family: Georgia, serif; font-size: 16px; font-weight: 600; color: #2C2416;">Walnut Olive Oil Cake</div>
+        <div style="background: #E8DDD0; color: #2C2416; padding: 2px 10px; border-radius: 20px; font-size: 11px; font-weight: 500;">DESSERT</div>
+      </div>
+      <div style="color: #8B6F47; font-size: 13px;">Bittersweet, dense, dressed in powdered sugar.</div>
+      <div style="font-size: 11px; color: #8B6F47; margin-top: 8px;">⏱ 20 min · 👨‍🍳 45 min · 🍽 Serves 8</div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 32px; padding: 24px; background: #E8DDD0; border-radius: 8px;">
+  <div class="label" style="margin-bottom: 8px; color: #2C2416;">The principle</div>
+  <p style="margin: 0; color: #2C2416; font-size: 14px; line-height: 1.6;">Saturation lives in the food photos. Everything in the chrome — surfaces, type, even the buttons — sits at low chroma so the photos pop. The brown CTA reads as "the interactive thing" because it's the warmest, deepest color on the page, not because it's bright.</p>
+</div>
+
+<div class="section" style="margin-top: 24px;">
+  <p class="subtitle" style="text-align: center;">Does this allocation work for you? Or would you like a brighter accent (and accept that it'll be more visually present near photos)?</p>
+</div>

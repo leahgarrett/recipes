@@ -1,0 +1,127 @@
+<h2>Card surfaces swapped</h2>
+<p class="subtitle">Selected card now matches the detail panel (white). Unselected cards sit on the page cream — quieter, more clearly "not the current one."</p>
+
+<div style="background: #FAF6F0; border-radius: 12px; overflow: hidden; border: 1px solid #E8DDD0; font-family: 'Helvetica Neue', 'Arial', sans-serif;">
+
+  <!-- Header -->
+  <div style="background: #FAF6F0; border-bottom: 1px solid #E8DDD0; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between;">
+    <div style="font-size: 18px; font-weight: 600; color: #2C2416; letter-spacing: -0.01em;">Recipe Browser</div>
+    <div style="font-size: 11px; font-weight: 500; color: #8B6F47; letter-spacing: 0.8px; text-transform: uppercase;">12 Recipes</div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 320px 1fr; gap: 24px; padding: 24px;">
+
+    <!-- LIST COLUMN -->
+    <div>
+      <input style="background: white; border: 1px solid #E8DDD0; padding: 9px 12px; border-radius: 6px; width: 100%; font-size: 13px; margin-bottom: 10px; color: #2C2416; box-sizing: border-box;" placeholder="🔍 Search recipes..." readonly>
+      <select style="background: white; border: 1px solid #E8DDD0; padding: 9px 12px; border-radius: 6px; width: 100%; font-size: 13px; margin-bottom: 14px; color: #2C2416; box-sizing: border-box;"><option>All categories</option></select>
+
+      <div style="font-size: 11px; color: #8B6F47; letter-spacing: 0.6px; text-transform: uppercase; margin-bottom: 10px;">Showing 3 of 12</div>
+
+      <!-- SELECTED card — now white, matches detail panel -->
+      <div style="background: white; border: 1.5px solid #8B6F47; border-radius: 8px; padding: 14px; margin-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+          <div style="font-size: 15px; font-weight: 600; color: #2C2416; letter-spacing: -0.01em;">Brown Butter Pancakes</div>
+          <div style="background: #8B6F47; color: #FAF6F0; padding: 2px 8px; border-radius: 20px; font-size: 10px; font-weight: 500; letter-spacing: 0.6px;">BREAKFAST</div>
+        </div>
+        <div style="color: #8B6F47; font-size: 12px; line-height: 1.5;">Toasted, nutty, the kind of stack you slow down for.</div>
+        <div style="font-size: 10px; color: #8B6F47; margin-top: 8px; letter-spacing: 0.3px;">⏱ 10 MIN · 👨‍🍳 15 MIN · 🍽 SERVES 4</div>
+      </div>
+
+      <!-- UNSELECTED cards — now cream/page color, quieter -->
+      <div style="background: #FAF6F0; border: 1px solid #E8DDD0; border-radius: 8px; padding: 14px; margin-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+          <div style="font-size: 15px; font-weight: 600; color: #2C2416;">Slow-Roasted Tomato Pasta</div>
+          <div style="background: #E8DDD0; color: #2C2416; padding: 2px 8px; border-radius: 20px; font-size: 10px; font-weight: 500; letter-spacing: 0.6px;">DINNER</div>
+        </div>
+        <div style="color: #8B6F47; font-size: 12px; line-height: 1.5;">Six tomatoes, two hours, one perfect bowl.</div>
+        <div style="font-size: 10px; color: #8B6F47; margin-top: 8px; letter-spacing: 0.3px;">⏱ 15 MIN · 👨‍🍳 2 HR · 🍽 SERVES 4</div>
+      </div>
+
+      <div style="background: #FAF6F0; border: 1px solid #E8DDD0; border-radius: 8px; padding: 14px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+          <div style="font-size: 15px; font-weight: 600; color: #2C2416;">Walnut Olive Oil Cake</div>
+          <div style="background: #E8DDD0; color: #2C2416; padding: 2px 8px; border-radius: 20px; font-size: 10px; font-weight: 500; letter-spacing: 0.6px;">DESSERT</div>
+        </div>
+        <div style="color: #8B6F47; font-size: 12px; line-height: 1.5;">Bittersweet, dense, dressed in powdered sugar.</div>
+        <div style="font-size: 10px; color: #8B6F47; margin-top: 8px; letter-spacing: 0.3px;">⏱ 20 MIN · 👨‍🍳 45 MIN · 🍽 SERVES 8</div>
+      </div>
+    </div>
+
+    <!-- DETAIL COLUMN -->
+    <div style="background: white; border: 1px solid #E8DDD0; border-radius: 12px; padding: 28px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+        <div style="font-size: 28px; font-weight: 600; color: #2C2416; letter-spacing: -0.02em; line-height: 1.1;">Brown Butter Pancakes</div>
+        <div style="background: #E8DDD0; color: #2C2416; padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: 500; letter-spacing: 0.7px;">BREAKFAST</div>
+      </div>
+      <div style="color: #8B6F47; font-size: 14px; margin-bottom: 12px; line-height: 1.5;">Toasted, nutty, the kind of stack you slow down for.</div>
+      <div style="display: flex; gap: 16px; font-size: 11px; color: #8B6F47; margin-bottom: 22px; letter-spacing: 0.5px; text-transform: uppercase;">
+        <span>⏱ Prep 10 min</span>
+        <span>· Cook 15 min</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 24px;">
+        <div style="background: linear-gradient(135deg, #d4a574 0%, #c08e5a 100%); height: 110px; border-radius: 6px;"></div>
+        <div style="background: linear-gradient(135deg, #b88556 0%, #8b5a3c 100%); height: 110px; border-radius: 6px;"></div>
+        <div style="background: linear-gradient(135deg, #d4a574 0%, #a06b40 100%); height: 110px; border-radius: 6px;"></div>
+      </div>
+
+      <div style="height: 1px; background: #E8DDD0; margin: 0 0 20px;"></div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+        <div style="font-size: 11px; font-weight: 500; color: #2C2416; letter-spacing: 0.8px; text-transform: uppercase;">Servings</div>
+        <div style="background: #8B6F47; color: #FAF6F0; padding: 4px 14px; border-radius: 20px; font-size: 14px; font-weight: 600;">4</div>
+      </div>
+      <div style="position: relative; height: 4px; background: #E8DDD0; border-radius: 2px; margin-bottom: 22px;">
+        <div style="position: absolute; left: 0; top: 0; width: 33%; height: 100%; background: #8B6F47; border-radius: 2px;"></div>
+        <div style="position: absolute; left: 33%; top: -4px; width: 12px; height: 12px; background: #8B6F47; border-radius: 50%; transform: translateX(-50%); border: 2px solid #FAF6F0; box-shadow: 0 0 0 1px #8B6F47;"></div>
+      </div>
+
+      <div style="height: 1px; background: #E8DDD0; margin: 0 0 20px;"></div>
+
+      <div style="font-size: 11px; font-weight: 500; color: #2C2416; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 12px;">Ingredients</div>
+      <div style="font-size: 13px; color: #2C2416; line-height: 1.9; margin-bottom: 24px;">
+        <div><strong>1 cup</strong> all-purpose flour</div>
+        <div><strong>2 tbsp</strong> brown butter, cooled</div>
+        <div><strong>1</strong> large egg</div>
+        <div><strong>¾ cup</strong> buttermilk</div>
+      </div>
+
+      <div style="height: 1px; background: #E8DDD0; margin: 0 0 20px;"></div>
+
+      <div style="font-size: 11px; font-weight: 500; color: #2C2416; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 16px;">Instructions</div>
+      <div style="font-size: 13px; color: #2C2416; line-height: 1.6;">
+        <div style="display: grid; grid-template-columns: 32px 1fr; gap: 12px; margin-bottom: 18px;">
+          <div style="font-size: 18px; font-weight: 600; color: #8B6F47; line-height: 1;">1</div>
+          <div>
+            <div style="display: inline-block; background: transparent; border: 1px solid #E8DDD0; color: #8B6F47; padding: 1px 8px; border-radius: 20px; font-size: 9px; font-weight: 500; letter-spacing: 0.7px; margin-bottom: 6px;">PREP</div>
+            <div>Brown the butter in a small saucepan until it smells nutty and the milk solids turn golden. Set aside to cool.</div>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 32px 1fr; gap: 12px; margin-bottom: 18px;">
+          <div style="font-size: 18px; font-weight: 600; color: #8B6F47; line-height: 1;">2</div>
+          <div>
+            <div style="display: inline-block; background: transparent; border: 1px solid #E8DDD0; color: #8B6F47; padding: 1px 8px; border-radius: 20px; font-size: 9px; font-weight: 500; letter-spacing: 0.7px; margin-bottom: 6px;">MIX</div>
+            <div>Whisk flour, sugar, baking powder, and salt. In a separate bowl, whisk egg, buttermilk, and the cooled brown butter.</div>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 32px 1fr; gap: 12px;">
+          <div style="font-size: 18px; font-weight: 600; color: #8B6F47; line-height: 1;">3</div>
+          <div>
+            <div style="display: inline-block; background: transparent; border: 1px solid #E8DDD0; color: #8B6F47; padding: 1px 8px; border-radius: 20px; font-size: 9px; font-weight: 500; letter-spacing: 0.7px; margin-bottom: 6px;">COOK</div>
+            <div>Heat a non-stick skillet over medium-low. Pour ¼-cup pools of batter and cook until bubbles form across the surface, about 2 minutes. Flip and cook 1 minute more.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 28px; padding: 16px 20px; background: #E8DDD0; border-radius: 8px;">
+  <div class="label" style="margin-bottom: 6px; color: #2C2416;">Nice side effect</div>
+  <p style="margin: 0; color: #2C2416; font-size: 13px; line-height: 1.5;">The selected card now visually "becomes" the detail — it's literally the same surface, just smaller. Brown border ties it to the panel. Unselected cards recede.</p>
+</div>
+
+<div class="section" style="margin-top: 20px;">
+  <p class="subtitle" style="text-align: center;">Looks right? Or want to keep iterating?</p>
+</div>
