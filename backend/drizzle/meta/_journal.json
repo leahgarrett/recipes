@@ -8,6 +8,13 @@
       "when": 1783086268132,
       "tag": "0000_free_gravity",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1783086683026,
+      "tag": "0001_complex_blob",
+      "breakpoints": true
     }
   ]
 }

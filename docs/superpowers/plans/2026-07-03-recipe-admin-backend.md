@@ -206,7 +206,7 @@ git commit -m "chore(backend): scaffold Fastify + Postgres backend folder"
 ```ts
 import { sql } from 'drizzle-orm';
 import {
-  pgTable, pgEnum, text, integer, doublePrecision, timestamp, serial, check,
+  pgTable, pgEnum, text, integer, doublePrecision, timestamp, serial, check, index,
 } from 'drizzle-orm/pg-core';
 
 export const stepTypeEnum = pgEnum('step_type', [
@@ -222,7 +222,7 @@ export const recipes = pgTable('recipes', {
   category: text('category').notNull(),
   description: text('description').notNull(),
   createdAt: timestamp('created_at').notNull().defaultNow(),
-  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow().$onUpdate(() => new Date()),
 });
 
 export const ingredients = pgTable('ingredients', {
@@ -232,7 +232,9 @@ export const ingredients = pgTable('ingredients', {
   amount: doublePrecision('amount').notNull(),
   unit: text('unit').notNull(),
   position: integer('position').notNull(),
-});
+}, (t) => [
+  index('ingredients_recipe_id_idx').on(t.recipeId),
+]);
 
 export const steps = pgTable('steps', {
   id: serial('id').primaryKey(),
@@ -240,7 +242,9 @@ export const steps = pgTable('steps', {
   instruction: text('instruction').notNull(),
   type: stepTypeEnum('type').notNull(),
   position: integer('position').notNull(),
-});
+}, (t) => [
+  index('steps_recipe_id_idx').on(t.recipeId),
+]);
 
 export const photos = pgTable('photos', {
   id: serial('id').primaryKey(),
@@ -255,6 +259,8 @@ export const photos = pgTable('photos', {
     'photo_owner_check',
     sql`(${t.recipeId} IS NOT NULL AND ${t.stepId} IS NULL) OR (${t.recipeId} IS NULL AND ${t.stepId} IS NOT NULL)`,
   ),
+  index('photos_recipe_id_idx').on(t.recipeId),
+  index('photos_step_id_idx').on(t.stepId),
 ]);
 ```
 
@@ -269,6 +275,9 @@ const connectionString =
   process.env.DATABASE_URL ?? 'postgres://recipes:recipes@localhost:5432/recipes';
 
 export const pool = new Pool({ connectionString });
+pool.on('error', (err) => {
+  console.error('Unexpected database pool error', err);
+});
 export const db = drizzle(pool, { schema });
 export type DB = typeof db;
 ```
