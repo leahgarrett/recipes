@@ -8,8 +8,8 @@ import {
 import { registerHealthRoutes } from './routes/health.js';
 import { registerRecipeRoutes } from './routes/recipes.js';
 
-export async function buildApp() {
-  const app = Fastify({ logger: false });
+export async function buildApp(options: { logger?: boolean } = {}) {
+  const app = Fastify({ logger: options.logger ?? false });
   app.setValidatorCompiler(validatorCompiler);
   app.setSerializerCompiler(serializerCompiler);
 
