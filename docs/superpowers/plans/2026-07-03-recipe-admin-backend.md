@@ -1156,6 +1156,24 @@ describe('export', () => {
     expect(() => recipesDataSchema.parse(written)).not.toThrow();
     expect(written.recipes[0].id).toBe('1');
   });
+
+  it('returns the number of recipes written', async () => {
+    await createRecipe({
+      name: 'Waffles', servings: 2, prepTime: '5 minutes', cookTime: '10 minutes',
+      category: 'Breakfast', description: 'Crispy',
+      ingredients: [{ item: 'flour', amount: 1, unit: 'cup' }],
+      instructions: [{ instruction: 'Cook', type: 'cook' }],
+    }, '1');
+    const count = await exportToFile(outPath);
+    expect(count).toBe(1);
+  });
+
+  it('writes an empty recipes array when the DB is empty', async () => {
+    const count = await exportToFile(outPath);
+    expect(count).toBe(0);
+    const written = JSON.parse(await readFile(outPath, 'utf-8'));
+    expect(written).toEqual({ recipes: [] });
+  });
 });
 ```
 
@@ -1167,7 +1185,7 @@ Expected: FAIL — cannot resolve `../../src/export/export.js`.
 - [ ] **Step 3: Create `backend/src/export/export.ts`**
 
 ```ts
-import { writeFile } from 'node:fs/promises';
+import { writeFile, rename } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { pool } from '../db/client.js';
 import { listRecipes } from '../services/recipes.js';
@@ -1177,7 +1195,11 @@ export async function exportToFile(outPath: string): Promise<number> {
   const recipes = await listRecipes();
   // Validate real data against the contract before writing — fails loudly on drift.
   const data = recipesDataSchema.parse({ recipes });
-  await writeFile(outPath, `${JSON.stringify(data, null, 2)}\n`, 'utf-8');
+  // Write atomically (temp file + rename) so a mid-write failure can't corrupt
+  // the public site's recipes.json.
+  const tmpPath = `${outPath}.tmp`;
+  await writeFile(tmpPath, `${JSON.stringify(data, null, 2)}\n`, 'utf-8');
+  await rename(tmpPath, outPath);
   return data.recipes.length;
 }
 

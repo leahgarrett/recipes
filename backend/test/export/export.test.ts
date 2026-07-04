@@ -31,4 +31,22 @@ describe('export', () => {
     expect(() => recipesDataSchema.parse(written)).not.toThrow();
     expect(written.recipes[0].id).toBe('1');
   });
+
+  it('returns the number of recipes written', async () => {
+    await createRecipe({
+      name: 'Waffles', servings: 2, prepTime: '5 minutes', cookTime: '10 minutes',
+      category: 'Breakfast', description: 'Crispy',
+      ingredients: [{ item: 'flour', amount: 1, unit: 'cup' }],
+      instructions: [{ instruction: 'Cook', type: 'cook' }],
+    }, '1');
+    const count = await exportToFile(outPath);
+    expect(count).toBe(1);
+  });
+
+  it('writes an empty recipes array when the DB is empty', async () => {
+    const count = await exportToFile(outPath);
+    expect(count).toBe(0);
+    const written = JSON.parse(await readFile(outPath, 'utf-8'));
+    expect(written).toEqual({ recipes: [] });
+  });
 });
