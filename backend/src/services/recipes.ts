@@ -103,6 +103,9 @@ export async function createRecipe(input: RecipeInput, id: string = randomUUID()
 }
 
 export async function updateRecipe(id: string, input: RecipeInput): Promise<Recipe | null> {
+  // Optimistic existence check: fine for this single-admin local tool. A concurrent delete
+  // between this check and the transaction isn't a real scenario here; if it ever became one,
+  // move the check inside the transaction.
   const [existing] = await db.select({ id: recipes.id }).from(recipes).where(eq(recipes.id, id));
   if (!existing) return null;
 

@@ -66,6 +66,34 @@ describe('recipe service', () => {
     expect(updated!.ingredients).toEqual([{ item: 'milk', amount: 1, unit: 'cup' }]);
   });
 
+  it('replaces recipe-level and step-level photos on update without duplicates', async () => {
+    await createRecipe(input, '1');
+    const updated = await updateRecipe('1', {
+      ...input,
+      photos: [{ url: 'https://example.com/new-recipe.png', alt: 'new recipe photo' }],
+      instructions: [
+        { instruction: 'New mix', type: 'mix' },
+        {
+          instruction: 'New cook',
+          type: 'cook',
+          photos: [{ url: 'https://example.com/new-step.png', alt: 'new cooking', caption: 'sizzle' }],
+        },
+      ],
+    });
+    expect(updated).not.toBeNull();
+    expect(updated!.photos).toEqual([
+      { url: 'https://example.com/new-recipe.png', alt: 'new recipe photo' },
+    ]);
+    expect(updated!.instructions[0].photos).toBeUndefined();
+    expect(updated!.instructions[1].photos).toEqual([
+      { url: 'https://example.com/new-step.png', alt: 'new cooking', caption: 'sizzle' },
+    ]);
+    // Re-fetch to confirm persistence, not just the returned value.
+    const refetched = await getRecipe('1');
+    expect(refetched!.photos).toEqual(updated!.photos);
+    expect(refetched!.instructions[1].photos).toEqual(updated!.instructions[1].photos);
+  });
+
   it('returns null when updating a missing recipe', async () => {
     expect(await updateRecipe('nope', input)).toBeNull();
   });
