@@ -51,6 +51,7 @@ interface RecipesData { recipes: Recipe[]; }
   "name": "recipe-admin-backend",
   "version": "1.0.0",
   "private": true,
+  "engines": { "node": ">=20" },
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/server.ts",
@@ -91,8 +92,8 @@ interface RecipesData { recipes: Recipe[]; }
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
     "strict": true,
     "skipLibCheck": true,
@@ -101,7 +102,7 @@ interface RecipesData { recipes: Recipe[]; }
     "rootDir": "src",
     "types": ["node"]
   },
-  "include": ["src", "drizzle.config.ts"]
+  "include": ["src"]
 }
 ```
 
@@ -136,6 +137,11 @@ services:
       POSTGRES_DB: recipes
     ports:
       - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U recipes -d recipes"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
     volumes:
       - recipes_pgdata:/var/lib/postgresql/data
       - ./docker/init:/docker-entrypoint-initdb.d
@@ -200,7 +206,7 @@ git commit -m "chore(backend): scaffold Fastify + Postgres backend folder"
 ```ts
 import { sql } from 'drizzle-orm';
 import {
-  pgTable, pgEnum, text, integer, doublePrecision, timestamp, serial, check,
+  pgTable, pgEnum, text, integer, doublePrecision, timestamp, serial, check, index,
 } from 'drizzle-orm/pg-core';
 
 export const stepTypeEnum = pgEnum('step_type', [
@@ -216,7 +222,7 @@ export const recipes = pgTable('recipes', {
   category: text('category').notNull(),
   description: text('description').notNull(),
   createdAt: timestamp('created_at').notNull().defaultNow(),
-  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow().$onUpdate(() => new Date()),
 });
 
 export const ingredients = pgTable('ingredients', {
@@ -226,7 +232,9 @@ export const ingredients = pgTable('ingredients', {
   amount: doublePrecision('amount').notNull(),
   unit: text('unit').notNull(),
   position: integer('position').notNull(),
-});
+}, (t) => [
+  index('ingredients_recipe_id_idx').on(t.recipeId),
+]);
 
 export const steps = pgTable('steps', {
   id: serial('id').primaryKey(),
@@ -234,7 +242,9 @@ export const steps = pgTable('steps', {
   instruction: text('instruction').notNull(),
   type: stepTypeEnum('type').notNull(),
   position: integer('position').notNull(),
-});
+}, (t) => [
+  index('steps_recipe_id_idx').on(t.recipeId),
+]);
 
 export const photos = pgTable('photos', {
   id: serial('id').primaryKey(),
@@ -249,6 +259,8 @@ export const photos = pgTable('photos', {
     'photo_owner_check',
     sql`(${t.recipeId} IS NOT NULL AND ${t.stepId} IS NULL) OR (${t.recipeId} IS NULL AND ${t.stepId} IS NOT NULL)`,
   ),
+  index('photos_recipe_id_idx').on(t.recipeId),
+  index('photos_step_id_idx').on(t.stepId),
 ]);
 ```
 
@@ -263,6 +275,9 @@ const connectionString =
   process.env.DATABASE_URL ?? 'postgres://recipes:recipes@localhost:5432/recipes';
 
 export const pool = new Pool({ connectionString });
+pool.on('error', (err) => {
+  console.error('Unexpected database pool error', err);
+});
 export const db = drizzle(pool, { schema });
 export type DB = typeof db;
 ```
@@ -349,6 +364,16 @@ describe('recipe schemas', () => {
 
   it('recipesData wraps an array', () => {
     expect(recipesDataSchema.parse({ recipes: [validRecipe] }).recipes).toHaveLength(1);
+  });
+
+  it('rejects a negative servings value', () => {
+    const bad = { ...validRecipe, servings: -1 };
+    expect(() => recipeSchema.parse(bad)).toThrow();
+  });
+
+  it('rejects a non-integer servings value', () => {
+    const bad = { ...validRecipe, servings: 1.5 };
+    expect(() => recipeSchema.parse(bad)).toThrow();
   });
 });
 ```
@@ -478,6 +503,17 @@ import { db } from '../../src/db/client.js';
 import { sql } from 'drizzle-orm';
 
 export async function resetDb() {
+  // Safety guard: refuse to truncate anything but a test database, independent of
+  // how DATABASE_URL was configured. TRUNCATE is irreversible.
+  const result = await db.execute<{ current_database: string }>(
+    sql`SELECT current_database()`,
+  );
+  const dbName = result.rows[0]?.current_database;
+  if (!dbName || !dbName.includes('test')) {
+    throw new Error(
+      `resetDb() refused to run: connected database "${dbName}" is not a test database`,
+    );
+  }
   await db.execute(
     sql`TRUNCATE TABLE photos, steps, ingredients, recipes RESTART IDENTITY CASCADE`,
   );
@@ -573,6 +609,34 @@ describe('recipe service', () => {
     });
     expect(updated!.name).toBe('Renamed');
     expect(updated!.ingredients).toEqual([{ item: 'milk', amount: 1, unit: 'cup' }]);
+  });
+
+  it('replaces recipe-level and step-level photos on update without duplicates', async () => {
+    await createRecipe(input, '1');
+    const updated = await updateRecipe('1', {
+      ...input,
+      photos: [{ url: 'https://example.com/new-recipe.png', alt: 'new recipe photo' }],
+      instructions: [
+        { instruction: 'New mix', type: 'mix' },
+        {
+          instruction: 'New cook',
+          type: 'cook',
+          photos: [{ url: 'https://example.com/new-step.png', alt: 'new cooking', caption: 'sizzle' }],
+        },
+      ],
+    });
+    expect(updated).not.toBeNull();
+    expect(updated!.photos).toEqual([
+      { url: 'https://example.com/new-recipe.png', alt: 'new recipe photo' },
+    ]);
+    expect(updated!.instructions[0].photos).toBeUndefined();
+    expect(updated!.instructions[1].photos).toEqual([
+      { url: 'https://example.com/new-step.png', alt: 'new cooking', caption: 'sizzle' },
+    ]);
+    // Re-fetch to confirm persistence, not just the returned value.
+    const refetched = await getRecipe('1');
+    expect(refetched!.photos).toEqual(updated!.photos);
+    expect(refetched!.instructions[1].photos).toEqual(updated!.instructions[1].photos);
   });
 
   it('returns null when updating a missing recipe', async () => {
@@ -701,6 +765,9 @@ export async function createRecipe(input: RecipeInput, id: string = randomUUID()
 }
 
 export async function updateRecipe(id: string, input: RecipeInput): Promise<Recipe | null> {
+  // Optimistic existence check: fine for this single-admin local tool. A concurrent delete
+  // between this check and the transaction isn't a real scenario here; if it ever became one,
+  // move the check inside the transaction.
   const [existing] = await db.select({ id: recipes.id }).from(recipes).where(eq(recipes.id, id));
   if (!existing) return null;
 
@@ -906,8 +973,8 @@ import {
 import { registerHealthRoutes } from './routes/health.js';
 import { registerRecipeRoutes } from './routes/recipes.js';
 
-export async function buildApp() {
-  const app = Fastify({ logger: false });
+export async function buildApp(options: { logger?: boolean } = {}) {
+  const app = Fastify({ logger: options.logger ?? false });
   app.setValidatorCompiler(validatorCompiler);
   app.setSerializerCompiler(serializerCompiler);
 
@@ -1089,6 +1156,24 @@ describe('export', () => {
     expect(() => recipesDataSchema.parse(written)).not.toThrow();
     expect(written.recipes[0].id).toBe('1');
   });
+
+  it('returns the number of recipes written', async () => {
+    await createRecipe({
+      name: 'Waffles', servings: 2, prepTime: '5 minutes', cookTime: '10 minutes',
+      category: 'Breakfast', description: 'Crispy',
+      ingredients: [{ item: 'flour', amount: 1, unit: 'cup' }],
+      instructions: [{ instruction: 'Cook', type: 'cook' }],
+    }, '1');
+    const count = await exportToFile(outPath);
+    expect(count).toBe(1);
+  });
+
+  it('writes an empty recipes array when the DB is empty', async () => {
+    const count = await exportToFile(outPath);
+    expect(count).toBe(0);
+    const written = JSON.parse(await readFile(outPath, 'utf-8'));
+    expect(written).toEqual({ recipes: [] });
+  });
 });
 ```
 
@@ -1100,7 +1185,7 @@ Expected: FAIL — cannot resolve `../../src/export/export.js`.
 - [ ] **Step 3: Create `backend/src/export/export.ts`**
 
 ```ts
-import { writeFile } from 'node:fs/promises';
+import { writeFile, rename } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { pool } from '../db/client.js';
 import { listRecipes } from '../services/recipes.js';
@@ -1110,7 +1195,11 @@ export async function exportToFile(outPath: string): Promise<number> {
   const recipes = await listRecipes();
   // Validate real data against the contract before writing — fails loudly on drift.
   const data = recipesDataSchema.parse({ recipes });
-  await writeFile(outPath, `${JSON.stringify(data, null, 2)}\n`, 'utf-8');
+  // Write atomically (temp file + rename) so a mid-write failure can't corrupt
+  // the public site's recipes.json.
+  const tmpPath = `${outPath}.tmp`;
+  await writeFile(tmpPath, `${JSON.stringify(data, null, 2)}\n`, 'utf-8');
+  await rename(tmpPath, outPath);
   return data.recipes.length;
 }
 
@@ -1158,7 +1247,7 @@ import { buildApp } from './app.js';
 
 const port = Number(process.env.PORT ?? 8000);
 
-const app = await buildApp();
+const app = await buildApp({ logger: true });
 app
   .listen({ port, host: '0.0.0.0' })
   .then(() => console.log(`Recipe Admin API on http://localhost:${port} (docs at /docs)`))
