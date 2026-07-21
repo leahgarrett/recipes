@@ -994,6 +994,105 @@
           "type": "rest"
         }
       ]
+    },
+    {
+      "id": "11",
+      "name": "Soft Banana Yoghurt Muffins",
+      "servings": 8,
+      "prepTime": "15 minutes",
+      "cookTime": "25 minutes",
+      "category": "Breakfast",
+      "description": "Soft, cloud-like banana muffins made with Greek yoghurt and almond meal. Riper bananas make them softer, and the yoghurt keeps them moist and tender.",
+      "photos": [
+        {
+          "url": "https://via.placeholder.com/600x400/FFF3C4/8B4513?text=Banana+Yoghurt+Muffins",
+          "alt": "Batch of soft golden banana yoghurt muffins in a muffin tray",
+          "caption": "Soft banana yoghurt muffins fresh from the oven"
+        }
+      ],
+      "ingredients": [
+        {
+          "item": "ripe bananas, mashed very smooth",
+          "amount": 2,
+          "unit": ""
+        },
+        {
+          "item": "eggs",
+          "amount": 2,
+          "unit": ""
+        },
+        {
+          "item": "Greek yoghurt",
+          "amount": 0.5,
+          "unit": "cup"
+        },
+        {
+          "item": "flour",
+          "amount": 1,
+          "unit": "cup"
+        },
+        {
+          "item": "almond meal",
+          "amount": 0.25,
+          "unit": "cup"
+        },
+        {
+          "item": "baking powder",
+          "amount": 2,
+          "unit": "teaspoons"
+        },
+        {
+          "item": "vanilla extract (optional)",
+          "amount": 1,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "sweetener, to taste — Stevia or a little sugar, depending on how sweet the bananas are (optional)",
+          "amount": 1.5,
+          "unit": "tablespoons"
+        },
+        {
+          "item": "salt",
+          "amount": 1,
+          "unit": "pinch"
+        },
+        {
+          "item": "cottage cheese, blended smooth or mashed in, for extra softness and protein (optional)",
+          "amount": 2.5,
+          "unit": "tablespoons"
+        },
+        {
+          "item": "ground cinnamon (optional)",
+          "amount": 0.5,
+          "unit": "teaspoon"
+        }
+      ],
+      "instructions": [
+        {
+          "instruction": "Heat oven to 180°C.",
+          "type": "prep"
+        },
+        {
+          "instruction": "Mash bananas until almost no lumps remain — riper bananas give softer muffins.",
+          "type": "prep"
+        },
+        {
+          "instruction": "Mix the mashed banana, eggs, and Greek yoghurt together.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Stir in the dry ingredients until only just combined — do not overmix, or the muffins will lose their cloud-like texture.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Spoon the batter into a muffin tray.",
+          "type": "prep"
+        },
+        {
+          "instruction": "Bake for 20-25 minutes until golden and cooked through.",
+          "type": "bake"
+        }
+      ]
     }
   ]
 }
