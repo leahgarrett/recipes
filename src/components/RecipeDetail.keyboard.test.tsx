@@ -8,6 +8,7 @@ import type { Recipe } from '../types/Recipe';
 const recipe: Recipe = {
   id: '1',
   name: 'Pancakes',
+  slug: 'pancakes',
   servings: 4,
   prepTime: '10 min',
   cookTime: '15 min',

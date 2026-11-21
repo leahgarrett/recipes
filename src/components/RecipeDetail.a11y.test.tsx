@@ -9,6 +9,7 @@ import type { Recipe } from '../types/Recipe';
 const recipeWithPhotos: Recipe = {
   id: '1',
   name: 'Brown Butter Pancakes',
+  slug: 'brown-butter-pancakes',
   servings: 4,
   prepTime: '10 min',
   cookTime: '15 min',

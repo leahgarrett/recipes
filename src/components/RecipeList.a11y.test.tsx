@@ -7,6 +7,7 @@ const mockRecipes: Recipe[] = [
   {
     id: '1',
     name: 'Brown Butter Pancakes',
+    slug: 'brown-butter-pancakes',
     servings: 4,
     prepTime: '10 min',
     cookTime: '15 min',
@@ -18,6 +19,7 @@ const mockRecipes: Recipe[] = [
   {
     id: '2',
     name: 'Slow-Roasted Tomato Pasta',
+    slug: 'slow-roasted-tomato-pasta',
     servings: 4,
     prepTime: '15 min',
     cookTime: '2 hr',
@@ -29,6 +31,7 @@ const mockRecipes: Recipe[] = [
   {
     id: '3',
     name: 'Walnut Olive Oil Cake',
+    slug: 'walnut-olive-oil-cake',
     servings: 8,
     prepTime: '20 min',
     cookTime: '45 min',

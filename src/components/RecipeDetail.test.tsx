@@ -7,6 +7,7 @@ import { renderWithTheme } from '../test/render';
 const mockRecipe: Recipe = {
   id: '1',
   name: 'Test Pancakes',
+  slug: 'test-pancakes',
   servings: 4,
   prepTime: '10 min',
   cookTime: '20 min',

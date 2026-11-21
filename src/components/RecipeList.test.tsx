@@ -9,6 +9,7 @@ const mockRecipes: Recipe[] = [
   {
     id: '1',
     name: 'Test Recipe 1',
+    slug: 'test-recipe-1',
     servings: 4,
     prepTime: '10 min',
     cookTime: '20 min',
@@ -22,6 +23,7 @@ const mockRecipes: Recipe[] = [
   {
     id: '2',
     name: 'Test Recipe 2',
+    slug: 'test-recipe-2',
     servings: 2,
     prepTime: '15 min',
     cookTime: '30 min',

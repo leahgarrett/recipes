@@ -5,6 +5,7 @@ An accessible recipe browsing application built with React, TypeScript, and Mant
 ## Features
 
 - 📖 Browse a collection of family recipes
+- 🔗 Every recipe has its own link to share, e.g. `…/recipes/#/fluffy-pancakes`
 - 🔍 Search recipes by name or description
 - 🏷️ Filter recipes by category
 - 📊 Scale ingredient quantities with an interactive slider
@@ -188,6 +189,7 @@ Recipes are stored in `public/recipes.json` with the following structure:
     {
       "id": "1",
       "name": "Recipe Name",
+      "slug": "recipe-name",
       "servings": 4,
       "prepTime": "10 minutes",
       "cookTime": "20 minutes",
@@ -246,6 +248,16 @@ Instructions are structured with types for better organization and searchability
 - **rest**: Resting, rising, or cooling periods
 - **serve**: Final plating and serving
 - **other**: Any other step type
+
+### Recipe Links (slugs)
+
+Each recipe's `slug` is the name used in its link: `https://leahgarrett.github.io/recipes/#/fluffy-pancakes`.
+
+- **Format:** lowercase letters and numbers separated by single hyphens.
+- **Unique:** two recipes can't share a slug. A test (`src/data/recipes.data.test.ts`) fails the build if they do.
+- **Stable:** renaming a recipe does **not** change its slug, so links already shared keep working. Change a slug only on purpose, knowing old links will show "Recipe not found".
+- **Generated for you:** the admin backend creates the slug from the name when a recipe is added (adding `-2`, `-3` if it's taken). If you edit `recipes.json` by hand, add one yourself.
+- **Why `#/`:** GitHub Pages returns a 404 for paths it has no file for, so `/recipes/fluffy-pancakes` would break on refresh. Hash links always work.
 
 ## Ingredient Scaling
 

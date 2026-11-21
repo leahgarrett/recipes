@@ -6,8 +6,8 @@ import { RecipeList } from './RecipeList';
 import type { Recipe } from '../types/Recipe';
 
 const mockRecipes: Recipe[] = [
-  { id: '1', name: 'Pancakes', servings: 4, prepTime: '10 min', cookTime: '15 min', category: 'Breakfast', description: 'A.', ingredients: [], instructions: [{ instruction: 'x', type: 'mix' }] },
-  { id: '2', name: 'Pasta', servings: 4, prepTime: '15 min', cookTime: '2 hr', category: 'Dinner', description: 'B.', ingredients: [], instructions: [{ instruction: 'x', type: 'cook' }] },
+  { id: '1', name: 'Pancakes', slug: 'pancakes', servings: 4, prepTime: '10 min', cookTime: '15 min', category: 'Breakfast', description: 'A.', ingredients: [], instructions: [{ instruction: 'x', type: 'mix' }] },
+  { id: '2', name: 'Pasta', slug: 'pasta', servings: 4, prepTime: '15 min', cookTime: '2 hr', category: 'Dinner', description: 'B.', ingredients: [], instructions: [{ instruction: 'x', type: 'cook' }] },
 ];
 
 describe('RecipeList keyboard', () => {

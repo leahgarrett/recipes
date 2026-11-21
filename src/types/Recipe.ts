@@ -21,6 +21,8 @@ export interface Step {
 export interface Recipe {
   id: string;
   name: string;
+  /** Stable, URL-safe name used in links (#/fluffy-pancakes). Does not change on rename. */
+  slug: string;
   servings: number;
   prepTime: string;
   cookTime: string;
