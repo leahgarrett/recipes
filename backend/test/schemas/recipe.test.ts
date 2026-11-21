@@ -4,6 +4,7 @@ import { recipeSchema, recipeInputSchema, recipesDataSchema } from '../../src/sc
 const validRecipe = {
   id: '1',
   name: 'Fluffy Pancakes',
+  slug: 'fluffy-pancakes',
   servings: 4,
   prepTime: '10 minutes',
   cookTime: '30 minutes',
@@ -26,6 +27,23 @@ describe('recipe schemas', () => {
   it('input schema omits id', () => {
     expect('id' in recipeInputSchema.shape).toBe(false);
   });
+
+  it('requires a slug on a stored recipe', () => {
+    const { slug: _slug, ...noSlug } = validRecipe;
+    expect(() => recipeSchema.parse(noSlug)).toThrow();
+  });
+
+  it('makes slug optional on input', () => {
+    const { id: _id, slug: _slug, ...input } = validRecipe;
+    expect(() => recipeInputSchema.parse(input)).not.toThrow();
+  });
+
+  it.each(['Fluffy-Pancakes', 'fluffy pancakes', '-pancakes', 'pancakes-', 'a--b', ''])(
+    'rejects malformed slug %j',
+    (slug) => {
+      expect(() => recipeSchema.parse({ ...validRecipe, slug })).toThrow();
+    },
+  );
 
   it('recipesData wraps an array', () => {
     expect(recipesDataSchema.parse({ recipes: [validRecipe] }).recipes).toHaveLength(1);

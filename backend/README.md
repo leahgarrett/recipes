@@ -27,6 +27,7 @@ npm run dev                 # API on http://localhost:8000, Swagger UI at /docs
 - Tests: `npm test` (uses the `recipes_test` database).
 
 ## Notes
+- Slugs: `POST /recipes` derives `slug` from the name if you don't send one (`-2`, `-3` on a clash). `PUT` keeps the existing slug unless you send a new one, so renaming doesn't break shared links. Sending a slug another recipe uses returns `409`.
 - The test DB (`recipes_test`) is created on first `docker compose up` by `docker/init/01-create-test-db.sql`. If you created the `recipes_pgdata` volume before that file existed, recreate it (`docker compose down -v && docker compose up -d`) so the test DB gets created.
 - `npm run export` regenerates `recipes.json` from the database; it validates against the Zod schema before writing and writes atomically. The regenerated file is semantically identical to the seed input but may order JSON keys differently (e.g. `photos` appears after the other recipe fields).
 

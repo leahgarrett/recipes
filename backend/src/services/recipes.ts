@@ -1,8 +1,33 @@
 import { randomUUID } from 'node:crypto';
-import { asc, eq } from 'drizzle-orm';
+import { and, asc, eq, ne } from 'drizzle-orm';
 import { db } from '../db/client.js';
 import { recipes, ingredients, steps, photos } from '../db/schema.js';
 import type { Photo, Recipe, RecipeInput } from '../schemas/recipe.js';
+import { slugify } from '../utils/slug.js';
+
+export class SlugTakenError extends Error {
+  constructor(public readonly slug: string) {
+    super(`Slug "${slug}" is already used by another recipe`);
+    this.name = 'SlugTakenError';
+  }
+}
+
+type Tx = Parameters<Parameters<typeof db.transaction>[0]>[0];
+
+async function slugInUse(tx: Tx, slug: string, exceptId?: string): Promise<boolean> {
+  const where = exceptId
+    ? and(eq(recipes.slug, slug), ne(recipes.id, exceptId))
+    : eq(recipes.slug, slug);
+  const [row] = await tx.select({ id: recipes.id }).from(recipes).where(where);
+  return Boolean(row);
+}
+
+// Derived slugs never fail: a clash gets -2, -3, ... appended.
+async function availableSlug(tx: Tx, base: string): Promise<string> {
+  let candidate = base;
+  for (let n = 2; await slugInUse(tx, candidate); n += 1) candidate = `${base}-${n}`;
+  return candidate;
+}
 
 type PhotoRow = typeof photos.$inferSelect;
 
@@ -34,6 +59,7 @@ export async function getRecipe(id: string): Promise<Recipe | null> {
   const recipe: Recipe = {
     id: row.id,
     name: row.name,
+    slug: row.slug,
     servings: row.servings,
     prepTime: row.prepTime,
     cookTime: row.cookTime,
@@ -58,7 +84,7 @@ export async function listRecipes(): Promise<Recipe[]> {
 }
 
 async function insertChildren(
-  tx: Parameters<Parameters<typeof db.transaction>[0]>[0],
+  tx: Tx,
   id: string,
   input: RecipeInput,
 ) {
@@ -93,8 +119,15 @@ async function insertChildren(
 
 export async function createRecipe(input: RecipeInput, id: string = randomUUID()): Promise<Recipe> {
   await db.transaction(async (tx) => {
+    let slug: string;
+    if (input.slug) {
+      if (await slugInUse(tx, input.slug)) throw new SlugTakenError(input.slug);
+      slug = input.slug;
+    } else {
+      slug = await availableSlug(tx, slugify(input.name));
+    }
     await tx.insert(recipes).values({
-      id, name: input.name, servings: input.servings, prepTime: input.prepTime,
+      id, slug, name: input.name, servings: input.servings, prepTime: input.prepTime,
       cookTime: input.cookTime, category: input.category, description: input.description,
     });
     await insertChildren(tx, id, input);
@@ -110,7 +143,10 @@ export async function updateRecipe(id: string, input: RecipeInput): Promise<Reci
   if (!existing) return null;
 
   await db.transaction(async (tx) => {
+    // Renaming keeps the slug so links already shared keep working; only an explicit slug changes it.
+    if (input.slug && await slugInUse(tx, input.slug, id)) throw new SlugTakenError(input.slug);
     await tx.update(recipes).set({
+      ...(input.slug ? { slug: input.slug } : {}),
       name: input.name, servings: input.servings, prepTime: input.prepTime,
       cookTime: input.cookTime, category: input.category, description: input.description,
       updatedAt: new Date(),

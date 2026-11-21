@@ -30,6 +30,7 @@ describe('export', () => {
     const written = JSON.parse(await readFile(outPath, 'utf-8'));
     expect(() => recipesDataSchema.parse(written)).not.toThrow();
     expect(written.recipes[0].id).toBe('1');
+    expect(written.recipes[0].slug).toBe('pancakes');
   });
 
   it('returns the number of recipes written', async () => {

@@ -10,6 +10,7 @@ export const stepTypeEnum = pgEnum('step_type', [
 export const recipes = pgTable('recipes', {
   id: text('id').primaryKey(),
   name: text('name').notNull(),
+  slug: text('slug').notNull().unique(),
   servings: integer('servings').notNull(),
   prepTime: text('prep_time').notNull(),
   cookTime: text('cook_time').notNull(),

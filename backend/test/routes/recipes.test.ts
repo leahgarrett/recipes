@@ -52,6 +52,27 @@ describe('recipe routes', () => {
     expect(res.statusCode).toBe(400);
   });
 
+  it('POST returns 409 when the slug is already taken', async () => {
+    await app.inject({ method: 'POST', url: '/recipes', payload: input });
+    const res = await app.inject({
+      method: 'POST', url: '/recipes', payload: { ...input, slug: 'fluffy-pancakes' },
+    });
+    expect(res.statusCode).toBe(409);
+  });
+
+  it('PUT returns 409 when the slug belongs to another recipe', async () => {
+    await app.inject({ method: 'POST', url: '/recipes', payload: input });
+    const other = await app.inject({
+      method: 'POST', url: '/recipes', payload: { ...input, name: 'Waffles' },
+    });
+    const res = await app.inject({
+      method: 'PUT',
+      url: `/recipes/${other.json().id as string}`,
+      payload: { ...input, slug: 'fluffy-pancakes' },
+    });
+    expect(res.statusCode).toBe(409);
+  });
+
   it('DELETE removes a recipe', async () => {
     const create = await app.inject({ method: 'POST', url: '/recipes', payload: input });
     const id = create.json().id as string;

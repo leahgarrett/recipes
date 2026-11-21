@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { resetDb } from '../helpers/db.js';
 import {
-  createRecipe, getRecipe, listRecipes, updateRecipe, deleteRecipe,
+  createRecipe, getRecipe, listRecipes, updateRecipe, deleteRecipe, SlugTakenError,
 } from '../../src/services/recipes.js';
 import type { RecipeInput } from '../../src/schemas/recipe.js';
 
@@ -92,6 +92,55 @@ describe('recipe service', () => {
     const refetched = await getRecipe('1');
     expect(refetched!.photos).toEqual(updated!.photos);
     expect(refetched!.instructions[1].photos).toEqual(updated!.instructions[1].photos);
+  });
+
+  it('derives a slug from the name on create', async () => {
+    const created = await createRecipe(input);
+    expect(created.slug).toBe('fluffy-pancakes');
+  });
+
+  it('suffixes a derived slug that is already taken', async () => {
+    await createRecipe(input, 'a');
+    const second = await createRecipe(input, 'b');
+    const third = await createRecipe(input, 'c');
+    expect(second.slug).toBe('fluffy-pancakes-2');
+    expect(third.slug).toBe('fluffy-pancakes-3');
+  });
+
+  it('keeps an explicit slug on create', async () => {
+    const created = await createRecipe({ ...input, slug: 'nanas-pancakes' });
+    expect(created.slug).toBe('nanas-pancakes');
+  });
+
+  it('rejects an explicit slug that is already taken', async () => {
+    await createRecipe(input, 'a');
+    await expect(createRecipe({ ...input, slug: 'fluffy-pancakes' }, 'b'))
+      .rejects.toBeInstanceOf(SlugTakenError);
+  });
+
+  it('keeps the slug when a recipe is renamed', async () => {
+    await createRecipe(input, '1');
+    const updated = await updateRecipe('1', { ...input, name: "Nana's Pancakes" });
+    expect(updated!.slug).toBe('fluffy-pancakes');
+  });
+
+  it('changes the slug on update only when one is given', async () => {
+    await createRecipe(input, '1');
+    const updated = await updateRecipe('1', { ...input, slug: 'nanas-pancakes' });
+    expect(updated!.slug).toBe('nanas-pancakes');
+  });
+
+  it('rejects an update to a slug another recipe uses', async () => {
+    await createRecipe(input, 'a');
+    await createRecipe({ ...input, name: 'Waffles' }, 'b');
+    await expect(updateRecipe('b', { ...input, slug: 'fluffy-pancakes' }))
+      .rejects.toBeInstanceOf(SlugTakenError);
+  });
+
+  it('allows an update that resends the recipe\'s own slug', async () => {
+    await createRecipe(input, '1');
+    const updated = await updateRecipe('1', { ...input, slug: 'fluffy-pancakes' });
+    expect(updated!.slug).toBe('fluffy-pancakes');
   });
 
   it('returns null when updating a missing recipe', async () => {
