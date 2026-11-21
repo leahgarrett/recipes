@@ -1093,6 +1093,678 @@
           "type": "bake"
         }
       ]
+    },
+    {
+      "id": "12",
+      "name": "Savoury Meatloaf Patties",
+      "servings": 8,
+      "prepTime": "30 minutes",
+      "cookTime": "15 minutes",
+      "category": "Dinner",
+      "description": "Vegetable-packed beef patties made with 500 g of mince, great hot for dinner or cold in work lunches — in a sandwich with cheese and mustard, crumbled over a salad, or with roasted vegetables. For extra fibre and to stretch the mince, increase the vegetables to 1 onion, 2 carrots and 1 zucchini.",
+      "photos": [
+        {
+          "url": "https://via.placeholder.com/600x400/DEB887/8B4513?text=Meatloaf+Patties",
+          "alt": "Golden-brown savoury meatloaf patties in a frying pan",
+          "caption": "Savoury meatloaf patties fresh from the pan"
+        }
+      ],
+      "ingredients": [
+        {
+          "item": "beef mince",
+          "amount": 500,
+          "unit": "grams"
+        },
+        {
+          "item": "small onion, finely diced",
+          "amount": 1,
+          "unit": ""
+        },
+        {
+          "item": "medium carrot, grated",
+          "amount": 1,
+          "unit": ""
+        },
+        {
+          "item": "celery stalk, finely diced (optional)",
+          "amount": 1,
+          "unit": ""
+        },
+        {
+          "item": "small zucchini, grated and squeezed dry (optional but recommended)",
+          "amount": 1,
+          "unit": ""
+        },
+        {
+          "item": "garlic, minced",
+          "amount": 2,
+          "unit": "cloves"
+        },
+        {
+          "item": "rolled oats",
+          "amount": 0.5,
+          "unit": "cup"
+        },
+        {
+          "item": "egg",
+          "amount": 1,
+          "unit": ""
+        },
+        {
+          "item": "Worcestershire sauce",
+          "amount": 1,
+          "unit": "tablespoon"
+        },
+        {
+          "item": "Dijon mustard",
+          "amount": 1,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "smoked paprika",
+          "amount": 1,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "cumin",
+          "amount": 0.5,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "black pepper",
+          "amount": 0.5,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "salt",
+          "amount": 1,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "chopped parsley (optional)",
+          "amount": 1,
+          "unit": "tablespoon"
+        },
+        {
+          "item": "grated cheddar or parmesan (optional)",
+          "amount": 0.25,
+          "unit": "cup"
+        }
+      ],
+      "instructions": [
+        {
+          "instruction": "Sauté the onion, carrot, celery and garlic in a little oil until softened, about 8 minutes. Let cool.",
+          "type": "cook"
+        },
+        {
+          "instruction": "Mix everything together gently.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Let the mixture rest for 10-15 minutes so the oats absorb some moisture.",
+          "type": "rest"
+        },
+        {
+          "instruction": "Form into 6 large or 8 medium patties.",
+          "type": "prep"
+        },
+        {
+          "instruction": "Cook over medium heat with a little oil for about 5-6 minutes per side, then reduce the heat, cover with a lid, and cook another 2-3 minutes if needed until cooked through.",
+          "type": "cook"
+        },
+        {
+          "instruction": "Optional: use the same frying pan to make a quick onion gravy — add a little butter and a teaspoon of flour, then whisk in beef or chicken stock. Spoon over the patties for dinner and keep leftovers plain for lunches.",
+          "type": "serve"
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "name": "Veggie-Packed Meatloaf",
+      "servings": 8,
+      "prepTime": "30 minutes",
+      "cookTime": "55 minutes",
+      "category": "Dinner",
+      "description": "A meal-prep meatloaf with around 40-50% vegetables by volume — cheaper, lighter, and it stays moist for reheating. Spread thin in a large baking dish for even cooking and more browned edges. Serve with mashed potato and beans, cold in a sandwich, crumbled into pasta, with roasted pumpkin and broccoli, or over rice with gravy.",
+      "photos": [
+        {
+          "url": "https://via.placeholder.com/600x400/CD853F/8B4513?text=Veggie-Packed+Meatloaf",
+          "alt": "Sliced vegetable-packed meatloaf in a large baking dish with browned edges",
+          "caption": "Veggie-packed meatloaf with browned edges"
+        }
+      ],
+      "ingredients": [
+        {
+          "item": "beef mince (700-800 g)",
+          "amount": 750,
+          "unit": "grams"
+        },
+        {
+          "item": "large onion, finely diced",
+          "amount": 1,
+          "unit": ""
+        },
+        {
+          "item": "carrots, grated",
+          "amount": 2,
+          "unit": ""
+        },
+        {
+          "item": "celery stalks, finely diced",
+          "amount": 2,
+          "unit": ""
+        },
+        {
+          "item": "small zucchini, grated and squeezed dry",
+          "amount": 1,
+          "unit": ""
+        },
+        {
+          "item": "red capsicum, diced",
+          "amount": 0.5,
+          "unit": ""
+        },
+        {
+          "item": "garlic, minced (3-4 cloves)",
+          "amount": 4,
+          "unit": "cloves"
+        },
+        {
+          "item": "rolled oats (1-1½ cups)",
+          "amount": 1.25,
+          "unit": "cups"
+        },
+        {
+          "item": "eggs",
+          "amount": 2,
+          "unit": ""
+        },
+        {
+          "item": "Worcestershire sauce",
+          "amount": 1,
+          "unit": "tablespoon"
+        },
+        {
+          "item": "Dijon mustard",
+          "amount": 1,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "smoked paprika",
+          "amount": 1,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "cumin",
+          "amount": 0.5,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "black pepper",
+          "amount": 0.5,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "salt",
+          "amount": 1,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "mushrooms, finely chopped (optional, 200-250 g — cooked down with the onion they boost savoury flavour, stretch the mince and keep the loaf moist)",
+          "amount": 225,
+          "unit": "grams"
+        }
+      ],
+      "instructions": [
+        {
+          "instruction": "Heat oven to 180°C.",
+          "type": "prep"
+        },
+        {
+          "instruction": "Sauté the onion, carrot, celery, capsicum and garlic (and mushrooms, if using — cook until most of their moisture evaporates) in a little oil until softened. Let cool.",
+          "type": "cook"
+        },
+        {
+          "instruction": "Mix everything together gently and let rest for 10-15 minutes so the oats absorb some moisture.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Spread the mixture into a 23 × 33 cm (9 × 13 inch) baking dish.",
+          "type": "prep"
+        },
+        {
+          "instruction": "Bake for 45-55 minutes until cooked through. (For a thicker traditional loaf, use a 23 × 13 cm loaf tin and bake 60-70 minutes.)",
+          "type": "bake"
+        },
+        {
+          "instruction": "Rest before slicing into about 8 servings.",
+          "type": "rest"
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "name": "Savoury Cheese and Corn Oat Muffins",
+      "servings": 12,
+      "prepTime": "45 minutes",
+      "cookTime": "22 minutes",
+      "category": "Lunch",
+      "description": "Hearty savoury muffins made with soaked oats, which keep them soft, moist and fresh for longer — great for work lunches. Soaking in sour cream gives the richest result, yoghurt a slightly lighter texture, and milk works if that's all you have. Add cooked bacon, diced ham, feta, spinach or chopped roasted pumpkin if you like.",
+      "photos": [
+        {
+          "url": "https://via.placeholder.com/600x400/F0E68C/8B4513?text=Savoury+Oat+Muffins",
+          "alt": "Golden savoury muffins with cheese and corn on a cooling rack",
+          "caption": "Savoury cheese and corn oat muffins"
+        }
+      ],
+      "ingredients": [
+        {
+          "item": "rolled oats",
+          "amount": 1,
+          "unit": "cup"
+        },
+        {
+          "item": "sour cream, plain yoghurt or milk, for soaking the oats",
+          "amount": 1,
+          "unit": "cup"
+        },
+        {
+          "item": "eggs",
+          "amount": 2,
+          "unit": ""
+        },
+        {
+          "item": "grated cheese",
+          "amount": 1,
+          "unit": "cup"
+        },
+        {
+          "item": "cooked onion",
+          "amount": 1,
+          "unit": ""
+        },
+        {
+          "item": "carrot, grated",
+          "amount": 1,
+          "unit": ""
+        },
+        {
+          "item": "corn kernels",
+          "amount": 0.75,
+          "unit": "cup"
+        },
+        {
+          "item": "plain flour",
+          "amount": 1,
+          "unit": "cup"
+        },
+        {
+          "item": "baking powder",
+          "amount": 2,
+          "unit": "teaspoons"
+        },
+        {
+          "item": "baking soda (if using sour cream or yoghurt)",
+          "amount": 0.5,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "smoked paprika",
+          "amount": 1,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "garlic powder",
+          "amount": 0.5,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "black pepper, to taste",
+          "amount": 0.25,
+          "unit": "teaspoon"
+        }
+      ],
+      "instructions": [
+        {
+          "instruction": "Soak the oats in the sour cream, yoghurt or milk for at least 30 minutes, or overnight in the fridge.",
+          "type": "rest"
+        },
+        {
+          "instruction": "Heat oven to 180°C and line a 12-hole muffin tin.",
+          "type": "prep"
+        },
+        {
+          "instruction": "Whisk the eggs, then stir in the soaked oats, cheese, onion, carrot and corn.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Add the flour, baking powder, baking soda, paprika, garlic powder and pepper, and stir until only just combined — keep at least 1 cup of plain flour so the muffins have enough structure to rise well.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Fill muffin cups about ¾ full.",
+          "type": "prep"
+        },
+        {
+          "instruction": "Bake for 20-25 minutes until golden and a skewer comes out clean.",
+          "type": "bake"
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "name": "Fluffy Chocolate Yoghurt Muffins",
+      "servings": 12,
+      "prepTime": "15 minutes",
+      "cookTime": "22 minutes",
+      "category": "Dessert",
+      "description": "Light, fluffy chocolate muffins made with two eggs and no oil — the berry yoghurt keeps them soft and adds a subtle fruity note. Mix gently and bake straight away for the best rise. A mashed ripe banana makes them even moister.",
+      "photos": [
+        {
+          "url": "https://via.placeholder.com/600x400/D2B48C/8B4513?text=Chocolate+Yoghurt+Muffins",
+          "alt": "Fluffy chocolate muffins made with berry yoghurt on a plate",
+          "caption": "Fluffy chocolate yoghurt muffins"
+        }
+      ],
+      "ingredients": [
+        {
+          "item": "plain flour",
+          "amount": 1.5,
+          "unit": "cups"
+        },
+        {
+          "item": "almond meal",
+          "amount": 0.25,
+          "unit": "cup"
+        },
+        {
+          "item": "cocoa powder",
+          "amount": 0.33,
+          "unit": "cup"
+        },
+        {
+          "item": "baking powder",
+          "amount": 2,
+          "unit": "teaspoons"
+        },
+        {
+          "item": "baking soda",
+          "amount": 0.5,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "salt",
+          "amount": 0.25,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "monkfruit sweetener (½-¾ cup depending on the brand)",
+          "amount": 0.5,
+          "unit": "cup"
+        },
+        {
+          "item": "eggs",
+          "amount": 2,
+          "unit": ""
+        },
+        {
+          "item": "berry-flavoured yoghurt",
+          "amount": 0.75,
+          "unit": "cup"
+        },
+        {
+          "item": "milk (½-¾ cup, enough for a thick but spoonable batter)",
+          "amount": 0.5,
+          "unit": "cup"
+        },
+        {
+          "item": "vanilla (optional)",
+          "amount": 1,
+          "unit": "teaspoon"
+        }
+      ],
+      "instructions": [
+        {
+          "instruction": "Heat oven to 180°C (or 200°C for the first 5 minutes, then down to 180°C for a taller muffin top).",
+          "type": "prep"
+        },
+        {
+          "instruction": "Mix all the dry ingredients.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Whisk together the eggs, yoghurt and milk.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Fold wet into dry until just combined. The batter should be thick but spoonable — add a splash more milk if it seems too stiff. Don't let the batter sit; get it straight into the oven for the best rise.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Fill muffin cups about ¾ full.",
+          "type": "prep"
+        },
+        {
+          "instruction": "Bake for 18-22 minutes.",
+          "type": "bake"
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "name": "Fluffy Chocolate Muffins",
+      "servings": 12,
+      "prepTime": "15 minutes",
+      "cookTime": "22 minutes",
+      "category": "Dessert",
+      "description": "Soft, fluffy chocolate muffins made with berry yoghurt and coconut oil — the berry gives a subtle black forest vibe. For a double-chocolate version, stir in ½ cup dark chocolate chips, or fold in ½ cup frozen berries for chocolate-berry muffins. If your monkfruit sweetener is a 1:1 blend, ½ cup gives a moderately sweet muffin and ¾ cup is more dessert-like.",
+      "photos": [
+        {
+          "url": "https://via.placeholder.com/600x400/BC8F8F/8B4513?text=Fluffy+Chocolate+Muffins",
+          "alt": "Fluffy chocolate muffins in a lined muffin tin",
+          "caption": "Fluffy chocolate muffins with a hint of berry"
+        }
+      ],
+      "ingredients": [
+        {
+          "item": "plain flour",
+          "amount": 1.5,
+          "unit": "cups"
+        },
+        {
+          "item": "almond meal",
+          "amount": 0.25,
+          "unit": "cup"
+        },
+        {
+          "item": "cocoa powder",
+          "amount": 0.33,
+          "unit": "cup"
+        },
+        {
+          "item": "baking powder",
+          "amount": 2,
+          "unit": "teaspoons"
+        },
+        {
+          "item": "baking soda",
+          "amount": 0.5,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "salt",
+          "amount": 0.25,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "monkfruit sweetener (½-¾ cup depending on the brand's sweetness)",
+          "amount": 0.5,
+          "unit": "cup"
+        },
+        {
+          "item": "egg",
+          "amount": 1,
+          "unit": ""
+        },
+        {
+          "item": "berry-flavoured yoghurt",
+          "amount": 0.5,
+          "unit": "cup"
+        },
+        {
+          "item": "melted coconut oil",
+          "amount": 0.25,
+          "unit": "cup"
+        },
+        {
+          "item": "milk (or enough to make a thick but scoopable batter)",
+          "amount": 0.75,
+          "unit": "cup"
+        },
+        {
+          "item": "vanilla (optional)",
+          "amount": 1,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "instant coffee powder (optional — deepens the chocolate flavour without tasting like coffee)",
+          "amount": 1,
+          "unit": "teaspoon"
+        }
+      ],
+      "instructions": [
+        {
+          "instruction": "Preheat oven to 180°C (160°C fan). For a taller muffin top, bake at 200°C for the first 5 minutes, then reduce to 180°C.",
+          "type": "prep"
+        },
+        {
+          "instruction": "Mix the flour, almond meal, cocoa, baking powder, baking soda, salt and monkfruit sweetener.",
+          "type": "mix"
+        },
+        {
+          "instruction": "In another bowl, whisk together the egg, yoghurt, coconut oil, milk and vanilla.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Fold the wet ingredients into the dry ingredients until just combined — don't overmix, and bake as soon as it's mixed.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Divide into a lined muffin tin, filling each about ¾ full.",
+          "type": "prep"
+        },
+        {
+          "instruction": "Bake for 18-22 minutes.",
+          "type": "bake"
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "name": "Fluffy Banana Muffins",
+      "servings": 12,
+      "prepTime": "15 minutes",
+      "cookTime": "22 minutes",
+      "category": "Breakfast",
+      "description": "Very soft, fluffy banana muffins using baking powder for lift and baking soda reacting with the yoghurt's acidity for extra rise and tenderness. Mix gently, don't let the batter sit, and get them into the oven quickly for maximum fluffiness.",
+      "photos": [
+        {
+          "url": "https://via.placeholder.com/600x400/FFDEAD/8B4513?text=Fluffy+Banana+Muffins",
+          "alt": "Golden fluffy banana muffins cooling on a wire rack",
+          "caption": "Fluffy banana muffins with honey yoghurt"
+        }
+      ],
+      "ingredients": [
+        {
+          "item": "large bananas, thawed and mashed (about 1 cup)",
+          "amount": 2,
+          "unit": ""
+        },
+        {
+          "item": "honey-flavoured yoghurt",
+          "amount": 0.5,
+          "unit": "cup"
+        },
+        {
+          "item": "egg",
+          "amount": 1,
+          "unit": ""
+        },
+        {
+          "item": "oil or melted butter",
+          "amount": 0.25,
+          "unit": "cup"
+        },
+        {
+          "item": "plain flour",
+          "amount": 1.5,
+          "unit": "cups"
+        },
+        {
+          "item": "almond meal",
+          "amount": 0.25,
+          "unit": "cup"
+        },
+        {
+          "item": "baking powder",
+          "amount": 2,
+          "unit": "teaspoons"
+        },
+        {
+          "item": "baking soda",
+          "amount": 0.5,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "salt (optional)",
+          "amount": 0.25,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "cinnamon or mixed spice (optional)",
+          "amount": 1,
+          "unit": "teaspoon"
+        },
+        {
+          "item": "vanilla (optional)",
+          "amount": 1,
+          "unit": "teaspoon"
+        }
+      ],
+      "instructions": [
+        {
+          "instruction": "Heat oven to 180°C (160°C fan). If your oven runs cool, start at 200°C for 5 minutes, then reduce to 180°C for the remaining bake.",
+          "type": "prep"
+        },
+        {
+          "instruction": "Grease or line a 12-hole muffin tin.",
+          "type": "prep"
+        },
+        {
+          "instruction": "In one bowl, mash the bananas (thaw completely and drain off any excess liquid) and whisk in the yoghurt, egg and oil.",
+          "type": "mix"
+        },
+        {
+          "instruction": "In another bowl, combine the flour, almond meal, baking powder, baking soda and salt.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Add dry ingredients to wet and stir only until combined — a few lumps are fine, and not overmixing is the biggest factor for fluffiness.",
+          "type": "mix"
+        },
+        {
+          "instruction": "Fill muffin cups about ¾ full.",
+          "type": "prep"
+        },
+        {
+          "instruction": "Bake for 18-22 minutes until golden and a skewer comes out clean.",
+          "type": "bake"
+        },
+        {
+          "instruction": "Cool for 10 minutes before removing from the tin.",
+          "type": "rest"
+        }
+      ]
     }
   ]
 }
