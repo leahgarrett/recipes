@@ -45,6 +45,10 @@ An accessible recipe browsing application built with React, TypeScript, and Mant
 - **React Testing Library 16.1** - For component testing with accessibility-first approach
 - **@testing-library/jest-dom 6.6** - Custom matchers for better assertions
 
+### Linting
+
+- **ESLint 9** with a flat config (`eslint.config.js`): `@eslint/js` recommended rules, **typescript-eslint**, **eslint-plugin-react-hooks** and **eslint-plugin-react-refresh**. Run `npm run lint`; any warning fails it. `backend/` is not linted by this config.
+
 ### Icons
 
 - **@tabler/icons-react** - Comprehensive icon set with React components
