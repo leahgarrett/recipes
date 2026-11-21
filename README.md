@@ -4,7 +4,7 @@ An accessible recipe browsing application built with React, TypeScript, and Mant
 
 ## Features
 
-- 📖 Browse 10 diverse recipes from different cuisines
+- 📖 Browse a collection of family recipes
 - 🔍 Search recipes by name or description
 - 🏷️ Filter recipes by category
 - 📊 Scale ingredient quantities with an interactive slider
@@ -96,7 +96,7 @@ src/
 ├── main.tsx                    # Application entry point
 └── index.css                   # Global styles with accessibility enhancements
 public/
-└── recipes.json                # Recipe data (10 diverse recipes)
+└── recipes.json                # Recipe data (all recipes in one file)
 ```
 
 ## Getting Started
